@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useSite } from "@/lib/context";
 import { t, tx } from "@/lib/i18n";
+import NawaLogo from "@/components/ui/NawaLogo";
 
 export default function Navbar() {
   const [scrolled,    setScrolled]    = useState(false);
@@ -62,13 +63,8 @@ export default function Navbar() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "5rem" }}>
 
               {/* ── Logo ── */}
-              <Link href="/" style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                <span className="text-gold-gradient" style={{ fontFamily: "var(--font-josefin)", fontSize: "1.05rem", fontWeight: 700, letterSpacing: "0.28em" }}>
-                  NAWAH
-                </span>
-                <span style={{ fontFamily: "var(--font-tajawal)", fontSize: "0.5rem", letterSpacing: "0.25em", color: "var(--c-gold-dim)" }}>
-                  {isAr ? "نواة التطوير العقاري" : "نواة التطوير العقاري"}
-                </span>
+              <Link href="/">
+                <NawaLogo height={48} />
               </Link>
 
               {/* ── Desktop Nav ── */}
@@ -226,9 +222,7 @@ export default function Navbar() {
             >
               {/* Header */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1.5rem", borderBottom: "1px solid var(--c-border-lo)" }}>
-                <span className="text-gold-gradient" style={{ fontFamily: "var(--font-josefin)", fontSize: "1rem", fontWeight: 700, letterSpacing: "0.25em" }}>
-                  NAWAH
-                </span>
+                <NawaLogo height={36} />
                 <button onClick={() => setMenuOpen(false)} style={{ padding: "0.4rem", background: "none", border: "none", cursor: "pointer", color: "var(--c-text-3)" }}>
                   <X size={19} />
                 </button>

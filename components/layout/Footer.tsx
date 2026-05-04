@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { MapPin, Phone, Mail } from "lucide-react";
+import NawaLogo from "@/components/ui/NawaLogo";
 
 type IconProps = { size?: number; className?: string; style?: React.CSSProperties };
 
@@ -100,24 +100,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex flex-col leading-tight mb-6">
-              <span
-                className="text-gold-gradient font-bold"
-                style={{ fontSize: "1.3rem", letterSpacing: "0.25em" }}
-              >
-                NAWAH
-              </span>
-              <span
-                className="mt-1"
-                style={{
-                  fontFamily: "var(--font-tajawal)",
-                  color: "rgba(181,133,22,0.7)",
-                  fontSize: "0.85rem",
-                  letterSpacing: "0.1em",
-                }}
-              >
-                نواة التطوير العقاري
-              </span>
+            <Link href="/" className="inline-block mb-6">
+              <NawaLogo height={80} />
             </Link>
             <p
               className="text-sm leading-relaxed mb-6"
