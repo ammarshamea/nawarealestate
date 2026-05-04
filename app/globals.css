@@ -1,26 +1,313 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ════════════════════════════════════════════
+   THEME VARIABLES
+   ════════════════════════════════════════════ */
+:root,
+[data-theme="dark"] {
+  /* Backgrounds */
+  --c-bg-1:   #0a0a0a;
+  --c-bg-2:   #0f0e0b;
+  --c-bg-3:   #080808;
+  --c-bg-4:   #111111;
+  --c-card:   rgba(181,133,22,0.03);
+  --c-card-h: rgba(181,133,22,0.08);
+
+  /* Text */
+  --c-text-1: #ffffff;
+  --c-text-2: rgba(255,255,255,0.58);
+  --c-text-3: rgba(255,255,255,0.35);
+  --c-text-4: rgba(255,255,255,0.22);
+
+  /* Gold */
+  --c-gold:       #b58516;
+  --c-gold-light: #ebbf5b;
+  --c-gold-cream: #f9edd1;
+  --c-gold-dim:   rgba(181,133,22,0.5);
+
+  /* Borders */
+  --c-border:    rgba(181,133,22,0.14);
+  --c-border-hi: rgba(181,133,22,0.38);
+  --c-border-lo: rgba(181,133,22,0.07);
+
+  /* Nav */
+  --c-nav:     rgba(10,10,10,0.96);
+  --c-input:   rgba(255,255,255,0.04);
+  --c-overlay: rgba(0,0,0,0.75);
+
+  /* Scrollbar */
+  --c-scroll-track: #111111;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="light"] {
+  /* Backgrounds */
+  --c-bg-1:   #faf8f2;
+  --c-bg-2:   #f2ece0;
+  --c-bg-3:   #ede7d6;
+  --c-bg-4:   #ffffff;
+  --c-card:   rgba(181,133,22,0.06);
+  --c-card-h: rgba(181,133,22,0.13);
+
+  /* Text */
+  --c-text-1: #0a0a0a;
+  --c-text-2: rgba(10,10,10,0.62);
+  --c-text-3: rgba(10,10,10,0.38);
+  --c-text-4: rgba(10,10,10,0.22);
+
+  /* Gold stays the same */
+  --c-gold:       #b58516;
+  --c-gold-light: #b58516;
+  --c-gold-cream: #7a5500;
+  --c-gold-dim:   rgba(181,133,22,0.6);
+
+  /* Borders */
+  --c-border:    rgba(181,133,22,0.25);
+  --c-border-hi: rgba(181,133,22,0.55);
+  --c-border-lo: rgba(181,133,22,0.12);
+
+  /* Nav */
+  --c-nav:     rgba(250,248,242,0.97);
+  --c-input:   rgba(0,0,0,0.04);
+  --c-overlay: rgba(0,0,0,0.6);
+
+  /* Scrollbar */
+  --c-scroll-track: #e8e0cc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ════════════════════════════════════════════
+   BASE RESET
+   ════════════════════════════════════════════ */
+* { box-sizing: border-box; }
+
+a, a:hover, a:visited, a:active, a:focus {
+  text-decoration: none;
+  color: inherit;
 }
+button { text-decoration: none; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Default font per language class */
+html.font-josefin body { font-family: var(--font-josefin), sans-serif; }
+html.font-tajawal body { font-family: var(--font-tajawal), sans-serif; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--c-bg-1);
+  color: var(--c-text-1);
+  font-family: var(--font-josefin), sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.3s ease;
 }
+
+/* ════════════════════════════════════════════
+   SCROLLBAR
+   ════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--c-scroll-track); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b58516, #ebbf5b);
+  border-radius: 3px;
+}
+::selection {
+  background: rgba(181,133,22,0.3);
+  color: #ebbf5b;
+}
+
+/* ════════════════════════════════════════════
+   TYPOGRAPHY
+   ════════════════════════════════════════════ */
+[dir="rtl"],
+.arabic {
+  font-family: var(--font-tajawal), sans-serif !important;
+  direction: rtl;
+  text-align: right;
+}
+/* When whole site is arabic */
+html[dir="rtl"] body {
+  font-family: var(--font-tajawal), sans-serif;
+}
+html[dir="rtl"] .arabic-skip-rtl {
+  direction: ltr;
+  text-align: left;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #b58516 0%, #ebbf5b 50%, #b58516 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gold-animate {
+  background: linear-gradient(90deg, #b58516, #ebbf5b, #f9edd1, #ebbf5b, #b58516);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 4s linear infinite;
+}
+@keyframes shimmerText {
+  0%   { background-position: 0%   center; }
+  100% { background-position: 300% center; }
+}
+
+/* ════════════════════════════════════════════
+   LAYOUT UTILITIES
+   ════════════════════════════════════════════ */
+.section-padding {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+@media (max-width: 768px) {
+  .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+.container-luxury {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (max-width: 1024px) { .container-luxury { padding-left: 1.5rem;  padding-right: 1.5rem;  } }
+@media (max-width: 640px)  { .container-luxury { padding-left: 1.25rem; padding-right: 1.25rem; } }
+
+/* RTL flips for section padding direction */
+html[dir="rtl"] .container-luxury { direction: rtl; }
+
+/* ════════════════════════════════════════════
+   EYEBROW / LABEL
+   ════════════════════════════════════════════ */
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-josefin), sans-serif;
+}
+html[dir="rtl"] .eyebrow {
+  letter-spacing: 0.08em;
+  font-family: var(--font-tajawal), sans-serif;
+}
+
+/* ════════════════════════════════════════════
+   GOLD DIVIDERS
+   ════════════════════════════════════════════ */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b58516, #ebbf5b, #b58516, transparent);
+}
+.gold-line-v {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #b58516, #ebbf5b, #b58516, transparent);
+}
+
+/* ════════════════════════════════════════════
+   BUTTONS
+   ════════════════════════════════════════════ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #b58516, #ebbf5b, #b58516);
+  background-size: 200% 200%;
+  color: #000000 !important;
+  font-family: var(--font-josefin), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: none;
+}
+html[dir="rtl"] .btn-gold { letter-spacing: 0.04em; font-family: var(--font-tajawal), sans-serif; }
+.btn-gold:hover {
+  background-position: right center;
+  box-shadow: 0 0 30px rgba(181,133,22,0.45);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2.5rem;
+  border: 1px solid rgba(181,133,22,0.65);
+  color: var(--c-gold-light);
+  font-family: var(--font-josefin), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  background: transparent;
+  cursor: pointer;
+}
+html[dir="rtl"] .btn-outline-gold { letter-spacing: 0.04em; font-family: var(--font-tajawal), sans-serif; }
+.btn-outline-gold:hover {
+  background: rgba(181,133,22,0.1);
+  border-color: #ebbf5b;
+  box-shadow: 0 0 20px rgba(181,133,22,0.2);
+  transform: translateY(-2px);
+}
+
+/* ════════════════════════════════════════════
+   CARDS & IMAGES
+   ════════════════════════════════════════════ */
+.project-card { overflow: hidden; position: relative; cursor: pointer; }
+.project-card img {
+  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.project-card:hover img { transform: scale(1.08); }
+
+.card-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 45%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════
+   FORM INPUTS
+   ════════════════════════════════════════════ */
+.luxury-input {
+  width: 100%;
+  background: var(--c-input);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-1);
+  padding: 1rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.luxury-input:focus {
+  border-color: #ebbf5b;
+  background: rgba(235,191,91,0.05);
+  box-shadow: 0 0 0 1px rgba(235,191,91,0.15);
+}
+.luxury-input::placeholder {
+  color: var(--c-text-3);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+html[dir="rtl"] .luxury-input { text-align: right; }
+
+*:focus-visible { outline: 2px solid #ebbf5b; outline-offset: 2px; }
+
+/* ════════════════════════════════════════════
+   TRANSITIONS (theme switch smoothing)
+   ════════════════════════════════════════════ */
+section, header, footer, div, p, h1, h2, h3, h4, span {
+  transition: background-color 0.35s ease, color 0.25s ease, border-color 0.3s ease;
+}
+/* Disable transition on images (avoid flash) */
+img { transition: none !important; }
