@@ -8,7 +8,7 @@ export default function NawaLogo({ height = 52, className = "", style = {} }: Pr
   const width = Math.round(height * (3071.73 / 2933.13));
   return (
     <img
-      src="/nawa_logo.svg"
+      src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/nawa_logo.svg`}
       alt="Nawah Real Estate Development — نواة التطوير العقاري"
       width={width}
       height={height}
