@@ -90,7 +90,7 @@ export default function AboutPage() {
           </ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-px" style={{ background: "var(--c-border)" }}>
             <ScrollReveal delay={0.1}>
-              <div className="p-12 h-full" style={{ background: "var(--c-bg-2)" }}>
+              <div className="p-6 sm:p-10 lg:p-12 h-full" style={{ background: "var(--c-bg-2)" }}>
                 <p className="eyebrow mb-3" style={{ color: "var(--c-gold)" }}>
                   {tx(t.about.visionLabel, lang)}
                 </p>
@@ -106,7 +106,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="p-12 h-full" style={{ background: "var(--c-bg-1)" }}>
+              <div className="p-6 sm:p-10 lg:p-12 h-full" style={{ background: "var(--c-bg-1)" }}>
                 <p className="eyebrow mb-3" style={{ color: "var(--c-gold)" }}>
                   {tx(t.about.missionLabel, lang)}
                 </p>
@@ -160,7 +160,7 @@ export default function AboutPage() {
       </section>
 
       <section className="section-padding" style={{ background: "var(--c-bg-1)" }}>
-        <div className="container-luxury grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="container-luxury grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16">
           <div>
             <ScrollReveal>
               <SectionLabel label={tx(t.about.philosophyLabel, lang)} />

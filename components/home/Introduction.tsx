@@ -12,7 +12,7 @@ export default function Introduction() {
   return (
     <section className="section-padding" style={{ background: "var(--c-bg-1)" }}>
       <div className="container-luxury">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
           <div>
             <ScrollReveal>
               <SectionLabel label={tx(t.intro.label, lang)} />

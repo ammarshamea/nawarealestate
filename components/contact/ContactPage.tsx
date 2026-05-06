@@ -66,7 +66,7 @@ export default function ContactPage() {
 
       <section className="section-padding" style={{ background: "var(--c-bg-1)" }}>
         <div className="container-luxury">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 xl:gap-12">
             <div className="lg:col-span-1 space-y-6">
               <ScrollReveal>
                 <SectionLabel label={tx(t.contact.detailsLabel, lang)} />

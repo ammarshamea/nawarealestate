@@ -15,7 +15,7 @@ export default function InvestmentValue() {
   return (
     <section className="section-padding relative" style={{ background: "var(--c-bg-2)" }}>
       <div className="container-luxury">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <ScrollReveal direction="right">
             <div className="relative">
               <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>

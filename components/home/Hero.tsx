@@ -21,7 +21,7 @@ function LineReveal({
       style={{
         overflow: "hidden",
         /* Display-size type: avoid clipping first/last glyphs + background-clip text edges */
-        paddingInline: "clamp(10px, 1.25vw, 22px)",
+        paddingInline: "clamp(4px, 2.5vw, 22px)",
       }}
     >
       <motion.div
@@ -64,6 +64,8 @@ export default function Hero() {
   /* Negative tracking + overflow:hidden clips Latin/Arabic glyph sides; keep neutral */
   const headlineTracking = "0";
   const headlineLineHeight = isAr ? 1.14 : 1.08;
+  /** Scales down on narrow / short viewports (mobile, landscape phones) */
+  const heroDisplay = "clamp(1.65rem, min(11vw, 12dvh), 7rem)";
 
   const imgY = useTransform(scrollY, [0, 700], [0, 90]);
   const textY = useTransform(scrollY, [0, 700], [0, -55]);
@@ -77,7 +79,7 @@ export default function Hero() {
     >
       <motion.div
         style={{ y: imgY, position: "absolute", inset: 0 }}
-        className="scale-110 origin-center"
+        className="scale-105 min-[480px]:scale-110 origin-center"
       >
         <motion.img
           src={publicPath("Kingdom-Centre-Riyadh-Saudi-Arabia.webp")}
@@ -111,31 +113,13 @@ export default function Hero() {
         style={{ y: textY, opacity, position: "relative", zIndex: 10, width: "100%", minWidth: 0 }}
       >
         {/*
-         * 50 / 50 grid.
-         * DOM order: [text-col, logo-col]
-         * LTR → text left,  logo right
-         * RTL → text right, logo left  (CSS grid respects dir automatically)
+         * Desktop: two columns — copy | logo (RTL swaps via grid).
+         * Narrow viewports: single column — headline then logo; safe-area + touch CTAs.
          */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            minHeight: "100svh",
-            width: "100%",
-          }}
-        >
+        <div className="grid min-h-[100svh] w-full grid-cols-1 grid-rows-[auto_1fr] min-[900px]:grid-cols-2 min-[900px]:grid-rows-1 min-[900px]:gap-0 gap-y-10">
           {/* ── TEXT HALF ── */}
           <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              paddingTop: "8rem",
-              paddingBottom: "7rem",
-              paddingInlineStart: "clamp(1.25rem, 4vw, 5rem)",
-              paddingInlineEnd: "clamp(1rem, 3vw, 3rem)",
-              minWidth: 0,
-            }}
+            className="flex min-h-0 min-w-0 flex-col justify-center px-4 max-[899px]:mx-auto max-[899px]:max-w-[100%] pb-6 min-[900px]:mx-0 min-[900px]:max-w-none min-[900px]:px-0 min-[900px]:pb-28 min-[900px]:ps-[clamp(1.25rem,4vw,5rem)] min-[900px]:pe-[clamp(1rem,3vw,3rem)] pt-[max(5.5rem,calc(env(safe-area-inset-top,0px)+4.5rem))] min-[900px]:pt-32"
           >
             <FadeUp delay={0.4}>
               <div
@@ -167,7 +151,7 @@ export default function Hero() {
             <LineReveal delay={0.5}>
               <p
                 style={{
-                  fontSize: "clamp(0.85rem, 1.4vw, 1.1rem)",
+                  fontSize: "clamp(0.78rem, 3.25vw, 1.08rem)",
                   color: "rgba(235,191,91,0.65)",
                   fontWeight: 300,
                   marginBottom: "0.5rem",
@@ -182,7 +166,7 @@ export default function Hero() {
               <h1
                 className="hero-headline-plain"
                 style={{
-                  fontSize: "clamp(2.8rem, 6vw, 7rem)",
+                  fontSize: heroDisplay,
                   fontWeight: 700,
                   letterSpacing: headlineTracking,
                   lineHeight: headlineLineHeight,
@@ -197,7 +181,7 @@ export default function Hero() {
               <h1
                 className="text-gold-animate"
                 style={{
-                  fontSize: "clamp(2.8rem, 6vw, 7rem)",
+                  fontSize: heroDisplay,
                   fontWeight: 700,
                   letterSpacing: headlineTracking,
                   lineHeight: headlineLineHeight,
@@ -210,7 +194,7 @@ export default function Hero() {
             <LineReveal delay={0.95}>
               <h1
                 style={{
-                  fontSize: "clamp(2.8rem, 6vw, 7rem)",
+                  fontSize: heroDisplay,
                   fontWeight: 700,
                   letterSpacing: headlineTracking,
                   lineHeight: headlineLineHeight,
@@ -224,12 +208,12 @@ export default function Hero() {
             </LineReveal>
 
             <FadeUp delay={1.15}>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-                <Link href="/about" className="btn-gold">
+              <div className="flex w-full flex-col gap-3 min-[460px]:max-w-max min-[460px]:flex-row min-[460px]:flex-wrap min-[460px]:gap-4 [&_a]:justify-center [&_a]:min-h-[48px]">
+                <Link href="/about" className="btn-gold shrink-0 w-full min-[460px]:w-auto">
                   {tx(t.nav.about, lang)}
                   <ArrowRight size={15} />
                 </Link>
-                <Link href="/contact" className="btn-outline-gold">
+                <Link href="/contact" className="btn-outline-gold w-full min-[460px]:w-auto">
                   {tx(t.nav.inquire, lang)}
                 </Link>
               </div>
@@ -242,21 +226,21 @@ export default function Hero() {
           </div>
 
           {/* ── LOGO HALF ── */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100svh" }}>
-            <FadeUp delay={0.2} className="flex w-full items-center justify-center">
+          <div className="flex min-h-0 min-w-0 items-center justify-center px-4 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-2 min-[900px]:px-6 min-[900px]:pb-28 min-[900px]:pt-24">
+            <FadeUp delay={0.2} className="flex w-full max-w-[min(100%,560px)] items-center justify-center min-[900px]:max-w-none">
               <Link
                 href="/"
-                className="flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ebbf5b]"
-                style={{ lineHeight: 0, padding: "clamp(0.5rem, 2vw, 2rem)", width: "100%" }}
+                className="flex w-full items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ebbf5b]"
+                style={{ lineHeight: 0 }}
               >
                 <NawaLogo
                   style={{
-                    width: "100%",
-                    height: "auto",
-                    maxWidth: "min(95%, 700px)",
-                    objectFit: "contain",
                     display: "block",
                     margin: "0 auto",
+                    width: "auto",
+                    height: "clamp(108px, min(34svh, 52vw), min(460px, 46vh))",
+                    maxWidth: "100%",
+                    objectFit: "contain",
                   }}
                 />
               </Link>
@@ -272,7 +256,7 @@ export default function Hero() {
         style={{
           opacity,
           position: "absolute",
-          bottom: "2.5rem",
+          bottom: "max(1.25rem, env(safe-area-inset-bottom, 0px))",
           left: "50%",
           transform: "translateX(-50%)",
           display: "flex",

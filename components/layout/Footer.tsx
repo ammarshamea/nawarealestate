@@ -26,20 +26,20 @@ export default function Footer() {
         }}
         className={isDark ? "surface-dark" : ""}
       >
-        <div className="container-luxury py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="container-luxury flex flex-col items-stretch gap-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-12 md:py-14">
           <div>
             <p className="eyebrow" style={{ color: "var(--c-gold)" }}>
               {tx(t.footer.ctaLabel, lang)}
             </p>
             <h3
-              className="text-2xl font-bold mt-2"
+              className="text-xl font-bold mt-2 leading-tight sm:text-2xl"
               style={{ color: isDark ? "var(--c-on-dark-1)" : "var(--c-text-1)" }}
             >
               {tx(t.footer.ctaTitle, lang)}
             </h3>
           </div>
-          <div className="flex gap-4 flex-wrap">
-            <Link href="/contact" className="btn-gold">
+          <div className="flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center md:w-auto md:justify-end">
+            <Link href="/contact" className="btn-gold w-full justify-center sm:w-auto shrink-0">
               {tx(t.footer.schedule, lang)}
             </Link>
           </div>
@@ -47,7 +47,7 @@ export default function Footer() {
       </div>
 
       <div className="container-luxury py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-14">
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <NawaLogo height={80} />

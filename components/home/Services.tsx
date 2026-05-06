@@ -14,7 +14,7 @@ export default function Services() {
 
   return (
     <section className="section-padding" style={{ background: "var(--c-bg-2)" }}>
-      <div className="container-luxury space-y-20">
+      <div className="container-luxury space-y-14 lg:space-y-20">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div>
             <ScrollReveal>
@@ -57,7 +57,7 @@ export default function Services() {
             return (
               <ScrollReveal key={service.en} delay={i * 0.07}>
                 <motion.div
-                  className="group p-8 flex flex-col gap-5 h-full"
+                  className="group p-6 sm:p-8 flex flex-col gap-5 h-full"
                   style={{ background: "var(--c-bg-1)" }}
                   whileHover={{ background: "var(--c-card-h)" }}
                   transition={{ duration: 0.3 }}

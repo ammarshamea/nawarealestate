@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteProvider } from "@/lib/context";
@@ -56,6 +56,16 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf8f2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     /* lang/dir are set dynamically by SiteProvider on the client */
@@ -71,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col">
         <SiteProvider>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 min-w-0 w-full overflow-x-clip">{children}</main>
           <Footer />
         </SiteProvider>
       </body>

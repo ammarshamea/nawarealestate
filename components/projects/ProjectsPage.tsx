@@ -146,10 +146,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="relative pt-40 pb-24 flex items-end overflow-hidden"
-        style={{ minHeight: "55vh" }}
-      >
+      <section className="relative flex min-h-[48svh] items-end overflow-hidden pb-14 pt-[max(6.5rem,calc(env(safe-area-inset-top,0px)+5rem))] sm:min-h-[52vh] sm:pb-20 sm:pt-36 md:min-h-[55vh] lg:pb-24 lg:pt-40">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1920&q=80"
@@ -323,12 +320,12 @@ export default function ProjectsPage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.18}>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <Link href="/contact" className="btn-gold">
+            <div className="mt-8 flex w-full max-w-md mx-auto flex-col gap-3 min-[520px]:max-w-none min-[520px]:flex-row min-[520px]:flex-wrap min-[520px]:justify-center sm:gap-4">
+              <Link href="/contact" className="btn-gold w-full min-[520px]:w-auto shrink-0 justify-center">
                 Request Investment Brief
                 <ArrowRight size={15} />
               </Link>
-              <a href="tel:+966500000001" className="btn-outline-gold">
+              <a href="tel:+966500000001" className="btn-outline-gold w-full min-[520px]:w-auto shrink-0 justify-center">
                 Call Investor Hotline
               </a>
             </div>

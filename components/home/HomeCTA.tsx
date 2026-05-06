@@ -22,7 +22,7 @@ export default function HomeCTA() {
 
   return (
     <section
-      className={`${isDark ? "surface-dark" : ""} relative overflow-hidden py-28`}
+      className={`${isDark ? "surface-dark" : ""} relative overflow-hidden py-16 sm:py-24 lg:py-28`}
       style={{
         background: panelBg,
         borderTop: isDark ? undefined : "1px solid var(--c-border)",
@@ -66,12 +66,12 @@ export default function HomeCTA() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.25}>
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
-            <Link href="/contact" className="btn-gold text-base">
+          <div className="flex w-full max-w-md mx-auto flex-col items-stretch gap-3 min-[480px]:max-w-none min-[480px]:flex-row min-[480px]:flex-wrap min-[480px]:justify-center sm:gap-4">
+            <Link href="/contact" className="btn-gold text-base w-full min-[480px]:w-auto justify-center">
               {tx(t.footer.schedule, lang)}
               <ArrowRight size={16} />
             </Link>
-            <Link href="/about" className="btn-outline-gold">
+            <Link href="/about" className="btn-outline-gold w-full min-[480px]:w-auto justify-center">
               {tx(t.nav.about, lang)}
             </Link>
           </div>
