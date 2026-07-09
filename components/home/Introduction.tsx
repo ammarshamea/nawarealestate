@@ -66,7 +66,7 @@ export default function Introduction() {
             <div className="relative">
               <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
                 <img
-                  src={publicPath("rise-tower-riyadh-3.jpg")}
+                  src={publicPath("rise-tower-riyadh-3.jpeg")}
                   alt="High-rise tower in Riyadh, Saudi Arabia"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />

@@ -16,10 +16,10 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[38vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={publicPath("rise-tower-riyadh-3.jpg")}
+            src={publicPath("rise-tower-riyadh-3.jpeg")}
             alt="Modern towers and real estate in Saudi Arabia"
             className="w-full h-full object-cover"
           />
@@ -32,28 +32,15 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="container-luxury relative z-10 pb-20 pt-40">
+        <div className="container-luxury relative z-10 pb-8 pt-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="eyebrow mb-4" style={{ color: "#ebbf5b" }}>
+            <p className="eyebrow" style={{ color: "#ebbf5b" }}>
               {tx(t.about.label, lang)}
             </p>
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 6vw, 6rem)",
-                fontWeight: 700,
-                letterSpacing: "-0.02em",
-                lineHeight: 1,
-                color: "#ffffff",
-              }}
-            >
-              {tx(t.about.h1a, lang)}
-              <br />
-              <span className="text-gold-gradient">{tx(t.about.h1b, lang)}</span>
-            </h1>
           </motion.div>
         </div>
       </section>

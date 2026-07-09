@@ -61,12 +61,6 @@ export default function Hero() {
   const { scrollY } = useScroll();
   const { lang } = useSite();
   const isAr = lang === "ar";
-  /* Negative tracking + overflow:hidden clips Latin/Arabic glyph sides; keep neutral */
-  const headlineTracking = "0";
-  const headlineLineHeight = isAr ? 1.14 : 1.08;
-  /** Scales down on narrow / short viewports (mobile, landscape phones) */
-  const heroDisplay = "clamp(1.65rem, min(11vw, 12dvh), 7rem)";
-
   const imgY = useTransform(scrollY, [0, 700], [0, 90]);
   const textY = useTransform(scrollY, [0, 700], [0, -55]);
   const opacity = useTransform(scrollY, [0, 450], [1, 0]);
@@ -82,7 +76,7 @@ export default function Hero() {
         className="scale-105 min-[480px]:scale-110 origin-center"
       >
         <motion.img
-          src={publicPath("Kingdom-Centre-Riyadh-Saudi-Arabia.webp")}
+          src={publicPath("Kingdom-Centre-Riyadh-Saudi-Arabia-light.jpeg")}
           alt="Kingdom Centre tower, Riyadh, Saudi Arabia"
           initial={{ scale: 1.18, opacity: 0 }}
           animate={{ scale: 1.08, opacity: 1 }}
@@ -162,52 +156,7 @@ export default function Hero() {
               </p>
             </LineReveal>
 
-            <LineReveal delay={0.65}>
-              <h1
-                className="hero-headline-plain"
-                style={{
-                  fontSize: heroDisplay,
-                  fontWeight: 700,
-                  letterSpacing: headlineTracking,
-                  lineHeight: headlineLineHeight,
-                  color: "#ffffff",
-                }}
-              >
-                {tx(t.hero.line1, lang)}
-              </h1>
-            </LineReveal>
-
-            <LineReveal delay={0.8}>
-              <h1
-                className="text-gold-animate"
-                style={{
-                  fontSize: heroDisplay,
-                  fontWeight: 700,
-                  letterSpacing: headlineTracking,
-                  lineHeight: headlineLineHeight,
-                }}
-              >
-                {tx(t.hero.line2, lang)}
-              </h1>
-            </LineReveal>
-
-            <LineReveal delay={0.95}>
-              <h1
-                style={{
-                  fontSize: heroDisplay,
-                  fontWeight: 700,
-                  letterSpacing: headlineTracking,
-                  lineHeight: headlineLineHeight,
-                  marginBottom: "2rem",
-                  color: "#ffffff",
-                }}
-              >
-                <span className="hero-headline-plain">{tx(t.hero.line3en, lang)}</span>{" "}
-                <span className="text-gold-gradient">{tx(t.hero.line3gold, lang)}</span>
-              </h1>
-            </LineReveal>
-
-            <FadeUp delay={1.15}>
+            <FadeUp delay={0.75}>
               <div className="flex w-full flex-col gap-3 min-[460px]:max-w-max min-[460px]:flex-row min-[460px]:flex-wrap min-[460px]:gap-4 [&_a]:justify-center [&_a]:min-h-[48px]">
                 <Link href="/about" className="btn-gold shrink-0 w-full min-[460px]:w-auto">
                   {tx(t.nav.about, lang)}

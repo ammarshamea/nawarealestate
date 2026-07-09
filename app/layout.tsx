@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteProvider } from "@/lib/context";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import { publicPath } from "@/lib/publicPath";
 
 const josefinSans = Josefin_Sans({
@@ -60,16 +61,13 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf8f2" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: "#f9edd1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     /* lang/dir are set dynamically by SiteProvider on the client */
-    <html lang="en" dir="ltr" data-theme="dark" className={`${josefinSans.variable} font-josefin h-full`}>
+    <html lang="ar" dir="rtl" className={`${josefinSans.variable} font-tajawal h-full`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -78,11 +76,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body suppressHydrationWarning className="min-h-full flex flex-col">
         <SiteProvider>
           <Navbar />
           <main className="site-shell flex-1 min-w-0 w-full overflow-x-clip">{children}</main>
           <Footer />
+          <WhatsAppFloat />
         </SiteProvider>
       </body>
     </html>

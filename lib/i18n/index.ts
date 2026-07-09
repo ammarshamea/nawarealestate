@@ -3,9 +3,13 @@ export type Lang = "en" | "ar";
 export const t = {
   nav: {
     home: { en: "Home", ar: "الرئيسية" },
-    projects: { en: "Projects", ar: "المشاريع" },
-    about: { en: "About Us", ar: "من نحن" },
-    contact: { en: "Contact", ar: "تواصل" },
+    projects: { en: "Developments", ar: "المشاريع" },
+    about: { en: "About Nawah", ar: "عن نواة" },
+    philosophy: { en: "Philosophy", ar: "فلسفتنا" },
+    services: { en: "Services", ar: "خدماتنا" },
+    investment: { en: "Investment", ar: "الاستثمار" },
+    contact: { en: "Contact", ar: "تواصل معنا" },
+    partnership: { en: "Start a Partnership", ar: "ابدأ شراكة" },
     inquire: { en: "Inquire Now", ar: "استفسر الآن" },
   },
 
@@ -17,7 +21,23 @@ export const t = {
   },
 
   hero: {
+    eyebrow: { en: "Nawah Real Estate Development", ar: "نواة التطوير العقاري" },
     location: { en: "Riyadh · Saudi Arabia", ar: "الرياض · المملكة العربية السعودية" },
+    headline: { en: "From the Core of an Idea,\nWe Create Destinations for Life", ar: "من نواة الفكرة\nنصنع وجهات للحياة" },
+    supporting: {
+      en: "We develop premium residential and commercial destinations that unite location, design, and value — crafting experiences that reflect the future of life in the Kingdom.",
+      ar: "نطور وجهات سكنية وتجارية راقية تجمع بين الموقع، التصميم، والقيمة، لنصنع تجارب تعكس مستقبل الحياة في المملكة.",
+    },
+    stages: [
+      { en: "From the core of an idea", ar: "من نواة الفكرة" },
+      { en: "We choose the location", ar: "نختار الموقع" },
+      { en: "We design the experience", ar: "نصمم التجربة" },
+      { en: "We create value", ar: "نصنع القيمة" },
+      { en: "We build lifestyles", ar: "ونبني أسلوب حياة" },
+    ],
+    cta1: { en: "Discover Nawah", ar: "اكتشف نواة" },
+    cta2: { en: "Start a Partnership", ar: "ابدأ شراكة" },
+    scroll: { en: "Scroll", ar: "تمرير" },
     line1: { en: "Crafting", ar: "نصنع" },
     line2: { en: "Luxury.", ar: "الفخامة." },
     line3en: { en: "Building", ar: "ونبني" },
@@ -26,23 +46,64 @@ export const t = {
       en: "Nawah Real Estate Development is a leading Saudi company specializing in high-end residential and commercial developments in Riyadh. Established with a clear vision, Nawah aims to redefine real estate development through innovation, quality, and the creation of integrated living and business environments.",
       ar: "نواة التطوير العقاري هي شركة سعودية رائدة متخصصة في تطوير المشاريع السكنية والتجارية الراقية في مدينة الرياض. تأسست الشركة برؤية واضحة تهدف إلى تقديم مفهوم جديد للتطوير العقاري، يرتكز على الابتكار، الجودة، وصناعة تجربة سكنية وتجارية متكاملة.",
     },
-    cta1: { en: "Explore Projects", ar: "استعرض المشاريع" },
-    cta2: { en: "Investor Inquiry", ar: "استفسار استثماري" },
-    scroll: { en: "Scroll", ar: "تمرير" },
   },
 
   intro: {
-    label: { en: "About Us", ar: "من نحن" },
-    h2a: { en: "A New Concept", ar: "مفهوم جديد" },
-    h2b: { en: "In Real Estate Development", ar: "للتطوير العقاري" },
+    label: { en: "About Nawah", ar: "عن نواة" },
+    h2a: { en: "We Don't Develop", ar: "نحن لا نطوّر" },
+    h2b: { en: "Buildings Alone", ar: "مجرد مبانٍ" },
+    morphFrom: { en: "buildings", ar: "مبانٍ" },
+    morphTo: { en: "destinations", ar: "وجهات" },
     p1: {
-      en: "Nawah Real Estate Development is a leading Saudi company specializing in high-end residential and commercial developments in Riyadh. Established with a clear vision, Nawah aims to redefine real estate development through innovation, quality, and the creation of integrated living and business environments.",
-      ar: "نواة التطوير العقاري هي شركة سعودية رائدة متخصصة في تطوير المشاريع السكنية والتجارية الراقية في مدينة الرياض. تأسست الشركة برؤية واضحة تهدف إلى تقديم مفهوم جديد للتطوير العقاري، يرتكز على الابتكار، الجودة، وصناعة تجربة سكنية وتجارية متكاملة.",
+      en: "Nawah Real Estate Development is a Saudi company specializing in premium residential and commercial projects in Riyadh, with a vision centered on innovation, quality, and integrated experiences.",
+      ar: "نواة التطوير العقاري شركة سعودية متخصصة في تطوير المشاريع السكنية والتجارية الراقية في مدينة الرياض، برؤية ترتكز على الابتكار والجودة وصناعة تجربة متكاملة.",
     },
     p2: {
       en: "We do not simply build properties — we create destinations that reflect a modern luxury lifestyle.",
-      ar: "نحن لا نطوّر مجرد مبانٍ، بل نبتكر وجهات متكاملة تعكس أسلوب حياة فاخر، وتواكب التحول العمراني الكبير الذي تشهده المملكة.",
+      ar: "نحن لا نطوّر مجرد مبانٍ، بل نبتكر وجهات متكاملة.",
     },
+  },
+
+  story: {
+    label: { en: "Company Story", ar: "قصة الشركة" },
+    headline: { en: "Understanding the Market\nIs the Beginning of Right Development", ar: "فهم السوق\nهو بداية التطوير الصحيح" },
+    body: {
+      en: "Nawah emerged from a deep understanding of the Saudi real estate market — delivering projects that unite modern design, prime locations, and investment value.",
+      ar: "انطلقت نواة من فهم عميق للسوق العقاري في المملكة، لتقدم مشاريع تجمع بين التصميم العصري، الموقع المميز، والقيمة الاستثمارية.",
+    },
+  },
+
+  philosophy: {
+    label: { en: "Development Philosophy", ar: "فلسفة التطوير" },
+    title: { en: "Location · Design · Value", ar: "الموقع · التصميم · القيمة" },
+    subtitle: {
+      en: "Map → Blueprint → Destination",
+      ar: "خريطة → مخطط → وجهة",
+    },
+  },
+
+  valuesSection: {
+    label: { en: "Core Values", ar: "قيمنا" },
+    title: { en: "Our Manifesto", ar: "رسالتنا" },
+  },
+
+  sustainabilitySection: {
+    label: { en: "Sustainability", ar: "الاستدامة" },
+    headline: { en: "Sustainability Begins\nWith a Design Decision", ar: "استدامة تبدأ\nمن قرار التصميم" },
+    body: {
+      en: "Responsible development through material choices, energy efficiency, and intelligent spatial planning.",
+      ar: "تطوير مسؤول عبر اختيار المواد، كفاءة الطاقة، والتخطيط المكاني الذكي.",
+    },
+  },
+
+  partnershipsSection: {
+    label: { en: "Partnerships", ar: "الشراكات" },
+    headline: { en: "Partnerships Build\nStronger Projects", ar: "الشراكات تصنع\nمشاريع أقوى" },
+    body: {
+      en: "We collaborate with international consultants, leading contractors, and specialized advisors to deliver excellence.",
+      ar: "نتعاون مع مكاتب استشارية عالمية، مقاولين رائدين، ومستشارين متخصصين لتحقيق التميز.",
+    },
+    cta: { en: "Start a Partnership with Nawah", ar: "ابدأ شراكة مع نواة" },
   },
 
   services: {
@@ -184,18 +245,30 @@ export const t = {
 
   investmentValue: {
     label: { en: "Investment Value", ar: "القيمة الاستثمارية" },
+    headline: { en: "We Build Value\nBeyond the Moment of Delivery", ar: "نبني قيمة\nتتجاوز لحظة التسليم" },
+    themes: [
+      { en: "Studied value", ar: "قيمة مدروسة" },
+      { en: "Long-term vision", ar: "رؤية طويلة المدى" },
+      { en: "Strategic selection", ar: "اختيار استراتيجي" },
+      { en: "Market understanding", ar: "فهم للسوق" },
+    ],
     title: { en: "", ar: "" },
     sub: { en: "", ar: "" },
     items: [
-      { en: "Strong ROI", ar: "عوائد استثمارية قوية" },
+      { en: "Strong investment value", ar: "قيمة استثمارية قوية" },
       { en: "Long-term growth", ar: "نمو طويل المدى" },
       { en: "High-demand projects", ar: "مشاريع ذات طلب مرتفع" },
-      { en: "Risk mitigation", ar: "تقليل المخاطر" },
+      { en: "Risk-conscious development", ar: "تطوير واعٍ للمخاطر" },
     ],
   },
 
   vision: {
-    label: { en: "Alignment with Vision", ar: "التزامنا برؤية المملكة" },
+    label: { en: "Our Direction", ar: "توجّهنا" },
+    headline: { en: "We Develop Today\nWhat Will Shape Tomorrow's Cities", ar: "نطوّر اليوم\nما سيصنع مدن الغد" },
+    body: {
+      en: "We strive to contribute to shaping the future of cities — developing projects that elevate quality of life and align with the Kingdom's urban transformation.",
+      ar: "نسعى للمساهمة في تشكيل مستقبل المدن، وتطوير مشاريع ترتقي بجودة الحياة وتواكب التحول العمراني في المملكة.",
+    },
     title: { en: "", ar: "" },
     sub: {
       en: "We support Saudi Vision 2030 by delivering developments that enhance quality of life and drive economic growth.",
@@ -204,13 +277,18 @@ export const t = {
   },
 
   contact: {
-    label: { en: "Get In Touch", ar: "تواصل معنا" },
-    h1a: { en: "Let's Start a", ar: "لنبدأ" },
-    h1b: { en: "Conversation", ar: "حوارًا معًا" },
+    label: { en: "Contact", ar: "تواصل معنا" },
+    h1a: { en: "Let's Begin", ar: "لنبدأ" },
+    h1b: { en: "From the Core of an Idea", ar: "من نواة الفكرة" },
     sub: {
-      en: "Whether you're looking to invest, partner, or simply learn more — our team is ready to provide the insight and guidance you need.",
-      ar: "سواء كنت تبحث عن الاستثمار أو الشراكة أو مجرد معرفة المزيد — فريقنا مستعد لتقديم الرؤى والتوجيه الذي تحتاجه.",
+      en: "Choose how we can build together.",
+      ar: "اختر كيف يمكننا أن نبني معاً.",
     },
+    step1: { en: "What is your interest?", ar: "ما نوع اهتمامك؟" },
+    step2: { en: "Your details", ar: "بياناتك" },
+    step3: { en: "Review & send", ar: "مراجعة وإرسال" },
+    next: { en: "Continue", ar: "متابعة" },
+    back: { en: "Back", ar: "رجوع" },
     detailsLabel: { en: "Contact Details", ar: "تفاصيل التواصل" },
     formLabel: { en: "Send a Message", ar: "أرسل رسالة" },
     inquiryType: { en: "Inquiry Type", ar: "نوع الاستفسار" },
@@ -221,7 +299,7 @@ export const t = {
     message: { en: "Message *", ar: "الرسالة *" },
     namePh: { en: "Your full name", ar: "اسمك الكامل" },
     emailPh: { en: "your@email.com", ar: "بريدك@الإلكتروني.com" },
-    phonePh: { en: "+966 5X XXX XXXX", ar: "٩٦٦+ ٥X XXX XXXX" },
+    phonePh: { en: "+966 5X XXX XXXX", ar: "+966 5X XXX XXXX" },
     companyPh: { en: "Your company (optional)", ar: "شركتك (اختياري)" },
     messagePh: { en: "Tell us about your interest or inquiry...", ar: "أخبرنا عن اهتمامك أو استفسارك..." },
     send: { en: "Send Message", ar: "إرسال الرسالة" },
@@ -232,6 +310,7 @@ export const t = {
     successTitle: { en: "Message Received", ar: "تم استلام رسالتك" },
     successSub: { en: "Thank you for reaching out. Our team will respond within 24 hours.", ar: "شكرًا لتواصلك. سيرد فريقنا خلال 24 ساعة." },
     sendAnother: { en: "Send Another Message", ar: "إرسال رسالة أخرى" },
+    whatsapp: { en: "Chat on WhatsApp", ar: "تواصل عبر واتساب" },
     inquiryTypes: {
       en: ["Residential Investment", "Commercial Investment", "Partnership Opportunity", "Project Information", "Media & Press", "General Inquiry"],
       ar: ["استثمار سكني", "استثمار تجاري", "فرصة شراكة", "معلومات المشروع", "الإعلام والصحافة", "استفسار عام"],
