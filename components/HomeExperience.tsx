@@ -9,9 +9,13 @@ import PhilosophyPinned from "@/components/sections/PhilosophyPinned";
 import CompanyStory from "@/components/sections/CompanyStory";
 import ServicesExplorer from "@/components/sections/ServicesExplorer";
 import ProjectTypesPanorama from "@/components/sections/ProjectTypesPanorama";
-import VisionForward from "@/components/sections/VisionForward";
+import TargetMarket from "@/components/sections/TargetMarket";
+import VisionSection from "@/components/sections/VisionSection";
+import MissionSection from "@/components/sections/MissionSection";
+import Vision2030Section from "@/components/sections/Vision2030Section";
 import ValuesManifesto from "@/components/sections/ValuesManifesto";
 import InvestmentTimeline from "@/components/sections/InvestmentTimeline";
+import CompetitiveAdvantage from "@/components/sections/CompetitiveAdvantage";
 import Partnerships from "@/components/sections/Partnerships";
 import Sustainability from "@/components/sections/Sustainability";
 import ContactExperience from "@/components/sections/ContactExperience";
@@ -45,26 +49,30 @@ export default function HomeExperience() {
       <CompanyStory />
       <ServicesExplorer />
       <ProjectTypesPanorama />
-      <VisionForward />
+      <TargetMarket />
+      <VisionSection />
+      <MissionSection />
+      <Vision2030Section />
       <ValuesManifesto />
       <InvestmentTimeline />
+      <CompetitiveAdvantage />
       <Partnerships />
       <Sustainability />
       <ContactExperience />
-      <div className="surface-dark-brand py-16 relative overflow-hidden">
+      <section id="tagline" className="surface-dark-brand py-16 relative overflow-hidden">
         <div className="absolute inset-0 h-32 opacity-40">
           <NawahLine variant="coreReturn" />
         </div>
         <div className="container-luxury text-center relative">
           <StaggerReveal>
             <StaggerItem>
-              <p className="text-gold-gradient text-lg md:text-xl font-bold max-w-2xl mx-auto leading-relaxed">
+              <p className="text-gold-gradient section-card-title text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                 {tx(t.brand.tagline, lang)}
               </p>
             </StaggerItem>
           </StaggerReveal>
         </div>
-      </div>
+      </section>
     </>
   );
 }

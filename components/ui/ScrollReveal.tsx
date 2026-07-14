@@ -1,12 +1,36 @@
 "use client";
 
-import { useRef, ReactNode } from "react";
+import { useRef, ReactNode, useEffect, useState } from "react";
 import { motion, useInView, type Variants, type HTMLMotionProps } from "framer-motion";
 import { useSite } from "@/lib/context";
 
 export type RevealVariant = "fadeUp" | "fadeIn" | "slideFromStart" | "imageReveal";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+const IN_VIEW_OPTS = { once: true, amount: 0.12 as const, margin: "-10% 0px -10% 0px" as const };
+
+function useRevealVisibility() {
+  const ref = useRef(null);
+  const { reducedMotion } = useSite();
+  const inView = useInView(ref, IN_VIEW_OPTS);
+  const [fallbackVisible, setFallbackVisible] = useState(false);
+
+  useEffect(() => {
+    if (reducedMotion || inView) return;
+
+    const timer = window.setTimeout(() => {
+      const node = ref.current as HTMLElement | null;
+      if (!node) return;
+      const rect = node.getBoundingClientRect();
+      const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inViewport) setFallbackVisible(true);
+    }, 1800);
+
+    return () => window.clearTimeout(timer);
+  }, [inView, reducedMotion]);
+
+  return { ref, show: reducedMotion || inView || fallbackVisible };
+}
 
 function getVariantStyles(variant: RevealVariant, isRtl: boolean): Variants {
   switch (variant) {
@@ -54,11 +78,8 @@ export default function ScrollReveal({
   once = true,
   duration = 0.7,
 }: ScrollRevealProps) {
-  const ref = useRef(null);
+  const { ref, show } = useRevealVisibility();
   const { reducedMotion, isAr } = useSite();
-  const inView = useInView(ref, { once, margin: "-60px 0px -40px 0px" });
-
-  const show = reducedMotion || inView;
 
   const variants: Variants = variant
     ? getVariantStyles(variant, isAr)
@@ -123,10 +144,8 @@ export function StaggerReveal({
   once = true,
   stagger = 0.12,
 }: StaggerRevealProps) {
-  const ref = useRef(null);
+  const { ref, show } = useRevealVisibility();
   const { reducedMotion } = useSite();
-  const inView = useInView(ref, { once, margin: "-60px 0px -40px 0px" });
-  const show = reducedMotion || inView;
 
   return (
     <motion.div

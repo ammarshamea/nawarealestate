@@ -3,7 +3,7 @@
 import AnchorLink from "@/components/ui/AnchorLink";
 import NawahLine from "@/components/motion/NawahLine";
 import NawaLogo from "@/components/ui/NawaLogo";
-import { navLinks, sectionAnchors } from "@/lib/data/sections";
+import { footerLinks, navLinks, sectionAnchors } from "@/lib/data/sections";
 import { useSite } from "@/lib/context";
 import { t, tx } from "@/lib/i18n";
 import { projectTypes } from "@/lib/data/projectTypes";
@@ -18,6 +18,16 @@ const labelMap = {
   contact: t.nav.contact,
 } as const;
 
+const footerLabelMap = {
+  story: t.nav.story,
+  targetMarket: t.nav.targetMarket,
+  mission: t.nav.mission,
+  vision2030: t.nav.vision2030,
+  values: t.nav.values,
+  partnerships: t.nav.partnerships,
+  sustainability: t.nav.sustainability,
+} as const;
+
 export default function Footer() {
   const { lang } = useSite();
 
@@ -27,25 +37,25 @@ export default function Footer() {
         <NawahLine variant="coreReturn" animate={false} />
       </div>
       <div className="container-luxury py-16 relative">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-4 md:gap-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 md:gap-12">
           <div className="lg:col-span-1">
             <AnchorLink anchor={sectionAnchors.home}>
               <NawaLogo height={72} />
             </AnchorLink>
-            <p className="text-sm leading-relaxed mt-6" style={{ color: "var(--c-text-2)" }}>
+            <p className="section-body !text-[0.9375rem] mt-6">
               {tx(t.hero.supporting, lang)}
             </p>
-            <p className="mt-4 text-gold-gradient text-sm font-bold">{tx(t.brand.tagline, lang)}</p>
+            <p className="mt-4 text-gold-gradient section-card-title">{tx(t.brand.tagline, lang)}</p>
           </div>
 
           <div>
-            <h4 className="eyebrow mb-6" style={{ color: "var(--color-brand-gold)" }}>
+            <h4 className="eyebrow mb-6">
               {tx(t.footer.nav, lang)}
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.anchor}>
-                  <AnchorLink anchor={link.anchor} className="text-sm" style={{ color: "var(--c-text-2)" }}>
+                  <AnchorLink anchor={link.anchor} className="section-body !mt-0 !text-[0.9375rem]">
                     {tx(labelMap[link.key], lang)}
                   </AnchorLink>
                 </li>
@@ -54,12 +64,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="eyebrow mb-6" style={{ color: "var(--color-brand-gold)" }}>
+            <h4 className="eyebrow mb-6">
+              {tx(t.footer.moreLinks, lang)}
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.map((link) => (
+                <li key={link.anchor}>
+                  <AnchorLink anchor={link.anchor} className="section-body !mt-0 !text-[0.9375rem]">
+                    {tx(footerLabelMap[link.key], lang)}
+                  </AnchorLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="eyebrow mb-6">
               {tx(t.footer.devTypes, lang)}
             </h4>
             <ul className="space-y-3">
               {projectTypes.map((item) => (
-                <li key={item.id} className="text-sm" style={{ color: "var(--c-text-2)" }}>
+                <li key={item.id} className="section-body !mt-0 !text-[0.9375rem]">
                   {tx(item.title, lang)}
                 </li>
               ))}
@@ -67,10 +92,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="eyebrow mb-6" style={{ color: "var(--color-brand-gold)" }}>
+            <h4 className="eyebrow mb-6">
               {tx(t.footer.contact, lang)}
             </h4>
-            <ul className="space-y-4 text-sm" style={{ color: "var(--c-text-2)" }}>
+            <ul className="space-y-4 section-body !text-[0.9375rem]">
               <li>{tx(t.contact.officeVal, lang)}</li>
               <li>
                 <a href="tel:+966500000000" className="link-arch ltr-inline">

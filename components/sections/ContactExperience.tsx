@@ -54,18 +54,16 @@ export default function ContactExperience() {
             <Eyebrow label={t.contact.label} />
           </StaggerItem>
           <StaggerItem>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold">
+            <h2 className="section-title">
               {tx(t.contact.h1a, lang)}{" "}
               <span className="text-gold-gradient">{tx(t.contact.h1b, lang)}</span>
             </h2>
           </StaggerItem>
           <StaggerItem>
-            <p className="mt-4" style={{ color: "var(--c-text-2)" }}>
-              {tx(t.contact.sub, lang)}
-            </p>
+            <p className="section-body">{tx(t.contact.sub, lang)}</p>
           </StaggerItem>
           <StaggerItem>
-            <ul className="mt-8 space-y-3 text-sm" style={{ color: "var(--c-text-2)" }}>
+            <ul className="mt-6 space-y-3 section-body !text-[0.9375rem]">
               <li>{tx(t.contact.officeVal, lang)}</li>
               <li>
                 <a href="tel:+966500000000" className="link-arch ltr-inline">

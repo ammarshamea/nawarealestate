@@ -25,9 +25,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        josefin: ["var(--font-josefin)", "sans-serif"],
-        tajawal: ["var(--font-tajawal)", "sans-serif"],
-        sans: ["var(--font-josefin)", "sans-serif"],
+        josefin: ["var(--font-josefin)", "Josefin Sans", "sans-serif"],
+        tajawal: ["var(--font-tajawal)", "Tajawal", "sans-serif"],
+        sans: ["var(--font-active)", "sans-serif"],
       },
       backgroundImage: {
         "gold-gradient":

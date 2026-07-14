@@ -26,7 +26,7 @@ export default function ValuesManifesto() {
               <StaggerItem>
                 <h2
                   id="values-heading"
-                  className="mt-5 text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.15] tracking-tight"
+                  className="section-title mt-5 max-w-2xl"
                 >
                   {tx(t.valuesSection.title, lang)}
                 </h2>

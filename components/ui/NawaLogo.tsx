@@ -19,7 +19,7 @@ export default function NawaLogo({
     return (
       <img
         src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/nawa_logo.svg`}
-        alt="Nawah Real Estate Development — نواة التطوير العقاري"
+        alt="Nawah Real Estate Development | نواة التطوير العقاري"
         className={className}
         style={{
           display: "block",
@@ -36,7 +36,7 @@ export default function NawaLogo({
   return (
     <img
       src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/nawa_logo.svg`}
-      alt="Nawah Real Estate Development — نواة التطوير العقاري"
+      alt="Nawah Real Estate Development | نواة التطوير العقاري"
       width={width}
       height={height}
       className={className}

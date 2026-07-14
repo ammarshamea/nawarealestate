@@ -1,167 +1,212 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import BrandImage from "@/components/ui/BrandImage";
-import Eyebrow from "@/components/ui/Eyebrow";
-import { StaggerReveal, StaggerItem } from "@/components/ui/ScrollReveal";
 import { projectTypes } from "@/lib/data/projectTypes";
 import { sectionAnchors } from "@/lib/data/sections";
 import { useSite } from "@/lib/context";
 import { t, tx } from "@/lib/i18n";
-import { getGsap, isMobileViewport } from "@/lib/motion/gsapClient";
-import { horizontalScrollDirection } from "@/lib/motion/rtl";
+import { getGsap } from "@/lib/motion/gsapClient";
+import { bindLocaleHorizontalScroll } from "@/lib/motion/rtl";
+import { refreshScrollTriggersPreservingPosition } from "@/lib/motion/scrollSync";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+function horizontalScrollLength(panelCount: number) {
+  const h = window.innerHeight;
+  return Math.max(1, panelCount - 1) * h * 1.12;
+}
+
+function ProjectTypesSectionHeader() {
+  const { lang, isAr } = useSite();
+
+  return (
+    <header className="project-types-section-header" dir={isAr ? "rtl" : "ltr"}>
+      <p id="project-types-heading" className="eyebrow project-types-section-eyebrow">
+        {tx(t.projectTypes.label, lang)}
+      </p>
+    </header>
+  );
+}
+
+function ProjectTypesStagePanel({
+  title,
+  desc,
+}: {
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="project-types-panel max-w-3xl">
+      <h3 className="project-types-panel-title">{title}</h3>
+      <div className="project-types-panel-body">
+        <p>{desc}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function ProjectTypesPanorama() {
   const { lang, isAr, reducedMotion } = useSite();
+  const stageSignature = useMemo(() => projectTypes.map((pt) => pt.id).join("|"), []);
   const sectionRef = useRef<HTMLElement>(null);
+  const pinRef = useRef<HTMLDivElement>(null);
+  const moverRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const isArRef = useRef(isAr);
+  isArRef.current = isAr;
+  const panelCount = projectTypes.length;
 
-  useEffect(() => {
-    if (reducedMotion || !sectionRef.current || !trackRef.current) return;
+  useLayoutEffect(() => {
+    if (reducedMotion || panelCount <= 1) return;
+    if (!sectionRef.current || !pinRef.current || !moverRef.current || !trackRef.current) return;
 
-    let ctx: { revert: () => void } | undefined;
-    let cancelled = false;
+    let disposed = false;
+    let ctx: { revert: () => void } | null = null;
 
-    getGsap().then(({ gsap, ScrollTrigger }) => {
-      const track = trackRef.current;
-      const section = sectionRef.current;
-      if (cancelled || !track || !section) return;
+    const resetMover = (gsap: Awaited<ReturnType<typeof getGsap>>["gsap"]) => {
+      const mover = moverRef.current;
+      if (!mover) return;
+      gsap.killTweensOf(mover);
+      gsap.set(mover, { clearProps: "transform" });
+    };
 
-      const dir = horizontalScrollDirection(isAr);
-      const scrollWidth = Math.max(track.scrollWidth - window.innerWidth, 0);
-      if (scrollWidth <= 0) return;
+    const setup = async () => {
+      const { gsap } = await getGsap();
+      if (disposed || !sectionRef.current || !pinRef.current || !moverRef.current || !trackRef.current) {
+        return;
+      }
+
+      ctx?.revert();
+      ctx = null;
+      resetMover(gsap);
+
+      await new Promise<void>((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      });
+      if (disposed || !trackRef.current || !moverRef.current) return;
+
+      const rtl = isArRef.current;
 
       ctx = gsap.context(() => {
-        gsap.to(track, {
-          x: dir * -scrollWidth,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: () => `+=${Math.min(scrollWidth, window.innerHeight * 2.5)}`,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            scrub: 0.55,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              const idx = Math.round(self.progress * (projectTypes.length - 1));
-              setActiveSlide(idx);
-            },
-          },
+        const getTravel = () => {
+          const track = trackRef.current;
+          if (!track) return 0;
+          return Math.max(0, track.scrollWidth - window.innerWidth);
+        };
+
+        bindLocaleHorizontalScroll(gsap, moverRef.current!, getTravel, rtl, {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: () => `+=${horizontalScrollLength(panelCount)}`,
+          pin: pinRef.current,
+          pinSpacing: true,
+          scrub: 0.85,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
         });
-        ScrollTrigger.refresh();
-      }, section);
-    });
+      }, sectionRef);
+
+      requestAnimationFrame(() => {
+        if (!disposed) void refreshScrollTriggersPreservingPosition();
+      });
+    };
+
+    void setup();
+
+    const onResize = () => {
+      requestAnimationFrame(() => {
+        if (!disposed) void setup();
+      });
+    };
+
+    window.addEventListener("resize", onResize);
+    window.addEventListener("orientationchange", onResize);
 
     return () => {
-      cancelled = true;
+      disposed = true;
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
       ctx?.revert();
+      ctx = null;
+      void getGsap().then(({ gsap }) => resetMover(gsap));
     };
-  }, [isAr, reducedMotion]);
+  }, [reducedMotion, isAr, lang, stageSignature, panelCount]);
 
   if (reducedMotion) {
     return (
-      <section id={sectionAnchors.projectTypes} className="section-padding surface-dark-brand">
-        <div className="container-luxury">
-          <Eyebrow label={t.projectTypes.label} />
-          <div className="mt-10 space-y-16">
-            {projectTypes.map((pt) => (
-              <PanoramaSlide
-                key={pt.id}
-                title={tx(pt.title, lang)}
-                desc={tx(pt.desc, lang)}
-                image={pt.image}
-                isActive
-                reducedMotion
+      <section
+        id={sectionAnchors.projectTypes}
+        className="project-types-section project-types-section--static surface-dark-brand"
+        aria-labelledby="project-types-heading"
+      >
+        <ProjectTypesSectionHeader />
+        {projectTypes.map((pt, i) => (
+          <article
+            key={pt.id}
+            dir={isAr ? "rtl" : "ltr"}
+            className="project-types-static-card"
+          >
+            <div className="project-types-static-media project-types-static-media--fullscreen">
+              <BrandImage
+                src={pt.image}
+                alt={tx(pt.title, lang)}
+                className="project-types-slide-image"
               />
-            ))}
-          </div>
-        </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/20" />
+              <div className="project-types-slide-overlay">
+                <ProjectTypesStagePanel
+                  title={tx(pt.title, lang)}
+                  desc={tx(pt.desc, lang)}
+                />
+              </div>
+            </div>
+          </article>
+        ))}
       </section>
     );
   }
 
   return (
-    <section id={sectionAnchors.projectTypes} ref={sectionRef} className="pin-section relative surface-dark-brand overflow-hidden">
-      <div className="absolute top-[calc(var(--nav-height)+1rem)] left-0 right-0 z-10 container-luxury">
-        <StaggerReveal>
-          <StaggerItem>
-            <Eyebrow label={t.projectTypes.label} />
-          </StaggerItem>
-          <StaggerItem>
-            <h2 className="mt-2 text-2xl md:text-3xl font-bold">
-              {tx(t.projectTypes.h2a, lang)}
-            </h2>
-          </StaggerItem>
-        </StaggerReveal>
-      </div>
-      <div
-        ref={trackRef}
-        className="flex hero-viewport min-h-[520px] pt-[calc(var(--nav-height)+5rem)]"
-      >
-        {projectTypes.map((pt, i) => (
-          <div key={pt.id} className="relative flex-shrink-0 w-screen h-full px-4 md:px-8">
-            <PanoramaSlide
-              title={tx(pt.title, lang)}
-              desc={tx(pt.desc, lang)}
-              image={pt.image}
-              isActive={activeSlide === i}
-              reducedMotion={false}
-            />
+    <section
+      id={sectionAnchors.projectTypes}
+      ref={sectionRef}
+      className="project-types-section relative surface-dark-brand"
+      aria-labelledby="project-types-heading"
+      data-locale={lang}
+    >
+      <div ref={pinRef} dir="ltr" className="project-types-pin">
+        <ProjectTypesSectionHeader />
+        <div ref={moverRef} className="project-types-track-mover">
+          <div
+            key={lang}
+            ref={trackRef}
+            className={isAr ? "project-types-track project-types-track--rtl" : "project-types-track"}
+          >
+            {projectTypes.map((pt, i) => (
+              <article
+                key={pt.id}
+                dir={isAr ? "rtl" : "ltr"}
+                className="project-types-slide"
+              >
+                <BrandImage
+                  src={pt.image}
+                  alt={tx(pt.title, lang)}
+                  priority={i < 2}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  className="project-types-slide-image"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/20" />
+                <div className="project-types-slide-overlay">
+                  <ProjectTypesStagePanel
+                    title={tx(pt.title, lang)}
+                    desc={tx(pt.desc, lang)}
+                  />
+                </div>
+              </article>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
-  );
-}
-
-function PanoramaSlide({
-  title,
-  desc,
-  image,
-  isActive = true,
-  reducedMotion = false,
-}: {
-  title: string;
-  desc: string;
-  image: string;
-  isActive?: boolean;
-  reducedMotion?: boolean;
-}) {
-  return (
-    <div className="brand-media-frame relative h-full w-full overflow-hidden">
-      <BrandImage src={image} alt={title} className="brand-media" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 p-8 md:p-12"
-        initial={false}
-        animate={
-          reducedMotion || isActive
-            ? { opacity: 1, y: 0 }
-            : { opacity: 0, y: 32 }
-        }
-        transition={{ duration: 0.65, ease: EASE }}
-      >
-        <motion.h3
-          className="text-3xl md:text-5xl font-bold text-white max-w-2xl"
-          animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.6, ease: EASE, delay: isActive ? 0.1 : 0 }}
-        >
-          {title}
-        </motion.h3>
-        <motion.p
-          className="mt-4 text-sm md:text-base text-white/75 max-w-lg"
-          animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.55, ease: EASE, delay: isActive ? 0.18 : 0 }}
-        >
-          {desc}
-        </motion.p>
-      </motion.div>
-    </div>
   );
 }

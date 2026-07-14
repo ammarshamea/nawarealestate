@@ -21,7 +21,7 @@ export const services = [
   },
   {
     id: "mixed-use",
-    title: { en: "Mixed-Use Development", ar: "تطوير المشاريع متعددة الاستخدام" },
+    title: { en: "Mixed-Use Development", ar: "تطوير مشاريع متعددة الاستخدام" },
     desc: {
       en: "Integrated destinations where living, working, and lifestyle converge in one vision.",
       ar: "وجهات متكاملة تجمع السكن والعمل وأسلوب الحياة في رؤية واحدة.",
@@ -29,13 +29,22 @@ export const services = [
     image: brandImages.urbanPlaza,
   },
   {
-    id: "management",
-    title: { en: "Project Management", ar: "إدارة المشاريع" },
+    id: "contracting",
+    title: { en: "General Contracting & Project Execution", ar: "المقاولات العامة وتنفيذ المشاريع" },
     desc: {
-      en: "End-to-end oversight ensuring quality execution from concept through delivery.",
-      ar: "إشراف شامل يضمن جودة التنفيذ من الفكرة حتى التسليم.",
+      en: "End-to-end construction execution through our in-house contracting arm, ensuring quality from ground-breaking to delivery.",
+      ar: "تنفيذ شامل للمشاريع عبر ذراعنا الخاص للمقاولات، بجودة عالية من البداية حتى التسليم.",
     },
     image: brandImages.developmentOffice,
+  },
+  {
+    id: "management",
+    title: { en: "Project Management & Construction Supervision", ar: "إدارة المشاريع والإشراف على التنفيذ" },
+    desc: {
+      en: "Comprehensive oversight and on-site supervision ensuring quality execution from concept through delivery.",
+      ar: "إشراف شامل ومتابعة ميدانية تضمن جودة التنفيذ من الفكرة حتى التسليم.",
+    },
+    image: brandImages.architecturalBlueprint,
   },
   {
     id: "joint-venture",

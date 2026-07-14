@@ -6,8 +6,8 @@ export const philosophyPillars = [
     number: "01",
     title: { en: "Location", ar: "الموقع" },
     desc: {
-      en: "Strategic positioning in Riyadh's most promising corridors — where growth meets demand.",
-      ar: "مواقع استراتيجية في أبرز محاور الرياض — حيث يلتقي النمو بالطلب.",
+      en: "Strategic positioning in Riyadh's most promising corridors, where growth meets demand.",
+      ar: "مواقع استراتيجية في أبرز محاور الرياض، حيث يلتقي النمو بالطلب.",
     },
     image: brandImages.skylineSunset,
     surface: "ivory" as const,
@@ -17,8 +17,8 @@ export const philosophyPillars = [
     number: "02",
     title: { en: "Design", ar: "التصميم" },
     desc: {
-      en: "Architecture that transforms vision into experience — modern, refined, and distinctly Saudi.",
-      ar: "عمارة تحوّل الرؤية إلى تجربة — عصرية، راقية، وذات هوية سعودية.",
+      en: "Architecture that transforms vision into experience: modern, refined, and distinctly Saudi.",
+      ar: "عمارة تحوّل الرؤية إلى تجربة عصرية، راقية، وذات هوية سعودية.",
     },
     image: brandImages.architecturalBlueprint,
     surface: "transition" as const,

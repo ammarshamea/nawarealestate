@@ -72,7 +72,6 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                 display: "inline-flex", alignItems: "center", gap: "0.5rem",
                 color: "rgba(255,255,255,0.55)", fontSize: "0.72rem", letterSpacing: "0.18em",
                 textTransform: "uppercase", marginBottom: "1.5rem",
-                fontFamily: isAr ? "var(--font-tajawal)" : "var(--font-josefin)",
               }}
             >
               {isAr ? <ArrowRight size={14} /> : <ArrowLeft size={14} />}
@@ -89,11 +88,10 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
             <h1 style={{
               fontSize: "clamp(2.5rem, 6vw, 6rem)", fontWeight: 700,
               letterSpacing: "-0.025em", lineHeight: 0.95, color: "#fff",
-              fontFamily: isAr ? "var(--font-tajawal)" : "var(--font-josefin)",
             }}>
               {name}
             </h1>
-            <p style={{ fontFamily: isAr ? "var(--font-josefin)" : "var(--font-tajawal)", color: "rgba(235,191,91,0.65)", fontSize: "1.1rem", marginTop: "0.5rem" }}>
+            <p style={{ fontFamily: isAr ? "var(--font-english)" : "var(--font-arabic)", color: "rgba(235,191,91,0.65)", fontSize: "1.1rem", marginTop: "0.5rem" }}>
               {isAr ? project.name.en : project.name.ar}
             </p>
 
@@ -136,7 +134,6 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                   <p style={{
                     color: "var(--c-text-2)", fontSize: "1rem", lineHeight: 2,
                     marginTop: "1.25rem", letterSpacing: "0.02em",
-                    fontFamily: isAr ? "var(--font-tajawal)" : undefined,
                     direction: isAr ? "rtl" : "ltr",
                   }}>
                     {desc}
@@ -192,7 +189,6 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                         <CheckCircle size={14} style={{ color: "#b58516", flexShrink: 0 }} />
                         <span style={{
                           fontSize: "0.85rem", color: "var(--c-text-1)",
-                          fontFamily: isAr ? "var(--font-tajawal)" : undefined,
                         }}>
                           {isAr ? a.ar : a.en}
                         </span>
@@ -216,7 +212,6 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                         <span style={{ width: "24px", height: "1px", background: "linear-gradient(90deg, #b58516, #ebbf5b)", flexShrink: 0 }} />
                         <p style={{
                           fontSize: "0.9rem", color: "var(--c-text-2)",
-                          fontFamily: isAr ? "var(--font-tajawal)" : undefined,
                         }}>
                           {isAr ? f.ar : f.en}
                         </p>
@@ -254,13 +249,13 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                     ].map((row) => (
                       <div key={row.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "0.75rem 0", borderBottom: "1px solid var(--c-border-lo)" }}>
                         <span className="eyebrow" style={{ color: "var(--c-text-3)", fontSize: "0.6rem" }}>{row.label}</span>
-                        <span style={{ fontSize: "0.8rem", color: "var(--c-text-1)", textAlign: isAr ? "left" : "right", maxWidth: "60%", fontFamily: isAr ? "var(--font-tajawal)" : undefined }}>
+                        <span style={{ fontSize: "0.8rem", color: "var(--c-text-1)", textAlign: isAr ? "left" : "right", maxWidth: "60%" }}>
                           {row.value}
                         </span>
                       </div>
                     ))}
 
-                    <p style={{ fontSize: "0.75rem", color: "var(--c-text-3)", lineHeight: 1.7, marginTop: "1rem", fontFamily: isAr ? "var(--font-tajawal)" : undefined }}>
+                    <p style={{ fontSize: "0.75rem", color: "var(--c-text-3)", lineHeight: 1.7, marginTop: "1rem" }}>
                       {isAr ? project.investment.note.ar : project.investment.note.en}
                     </p>
                   </div>
@@ -285,7 +280,6 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                       display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem",
                       padding: "0.9rem", border: "1px solid var(--c-border-lo)",
                       fontSize: "0.75rem", color: "var(--c-text-2)", letterSpacing: "0.1em",
-                      fontFamily: isAr ? "var(--font-tajawal)" : "var(--font-josefin)",
                     }}>
                       <Phone size={13} style={{ color: "#b58516" }} />
                       {isAr ? "خط المستثمرين: ٩٦٦-٥٠-٠٠٠-٠٠٠١" : "+966 50 000 0001"}
@@ -299,7 +293,7 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                     <MapPin size={14} style={{ color: "#b58516", flexShrink: 0 }} />
                     <div>
                       <p className="eyebrow" style={{ color: "var(--c-gold)", fontSize: "0.58rem" }}>{tx(t.common.location, lang)}</p>
-                      <p style={{ color: "var(--c-text-2)", fontSize: "0.85rem", marginTop: "2px", fontFamily: isAr ? "var(--font-tajawal)" : undefined }}>
+                      <p style={{ color: "var(--c-text-2)", fontSize: "0.85rem", marginTop: "2px" }}>
                         {location}
                       </p>
                     </div>
@@ -317,7 +311,7 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
           <ScrollReveal className="mb-10">
             <GoldDivider className="mb-4" />
             <p className="eyebrow" style={{ color: "var(--c-gold)" }}>{tx(t.common.related, lang)}</p>
-            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--c-text-1)", marginTop: "0.5rem", fontFamily: isAr ? "var(--font-tajawal)" : undefined }}>
+            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 700, color: "var(--c-text-1)", marginTop: "0.5rem" }}>
               {isAr ? "مشاريع أخرى" : "More Developments"}
             </h2>
           </ScrollReveal>
@@ -333,7 +327,7 @@ export default function ProjectDetailPage({ project, related }: { project: Proje
                       />
                       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent 50%)" }} />
                       <div style={{ position: "absolute", bottom: "1rem", left: "1rem", right: "1rem" }}>
-                        <p style={{ color: "#fff", fontWeight: 700, fontSize: "1rem", fontFamily: isAr ? "var(--font-tajawal)" : undefined }}>{p.name[lang]}</p>
+                        <p style={{ color: "#fff", fontWeight: 700, fontSize: "1rem" }}>{p.name[lang]}</p>
                         <p style={{ color: "rgba(235,191,91,0.8)", fontSize: "0.72rem", marginTop: "3px" }}>{p.category[lang]}</p>
                       </div>
                     </div>

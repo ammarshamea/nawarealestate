@@ -193,7 +193,7 @@ export default function ProjectsPage() {
               className="mt-5 max-w-xl text-sm leading-relaxed"
               style={{ color: "rgba(255,255,255,0.55)" }}
             >
-              From luxury compounds to landmark towers — every Nawah development is a
+              From luxury compounds to landmark towers, every Nawah development is a
               statement of quality, vision, and lasting value.
             </p>
           </motion.div>
@@ -225,9 +225,8 @@ export default function ProjectsPage() {
                     active === cat
                       ? "1px solid #b58516"
                       : "1px solid rgba(255,255,255,0.1)",
-                  fontFamily: "var(--font-josefin)",
                   letterSpacing: "0.1em",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   cursor: "pointer",
                 }}
               >

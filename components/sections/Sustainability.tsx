@@ -19,36 +19,28 @@ export default function Sustainability() {
           background: "radial-gradient(circle at 30% 20%, #ebbf5b, transparent 50%), radial-gradient(circle at 70% 80%, #b58516, transparent 45%)",
         }}
       />
-      <div className="container-luxury relative grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="container-luxury relative grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
         <StaggerReveal>
-          <StaggerItem>
-            <Eyebrow label={t.sustainabilitySection.label} />
-          </StaggerItem>
-          <StaggerItem>
-            <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight whitespace-pre-line">
-              {tx(t.sustainabilitySection.headline, lang)}
-            </h2>
-          </StaggerItem>
-          <StaggerItem>
-            <p className="mt-6 leading-relaxed" style={{ color: "var(--c-text-2)" }}>
-              {tx(t.sustainabilitySection.body, lang)}
-            </p>
-          </StaggerItem>
+          <div className="section-header">
+            <StaggerItem>
+              <Eyebrow label={t.sustainabilitySection.label} />
+            </StaggerItem>
+            <StaggerItem>
+              <h2 className="section-title section-title--preline">
+                {tx(t.sustainabilitySection.headline, lang)}
+              </h2>
+            </StaggerItem>
+            <StaggerItem>
+              <p className="section-body">{tx(t.sustainabilitySection.body, lang)}</p>
+            </StaggerItem>
+          </div>
         </StaggerReveal>
         <StaggerReveal stagger={0.08}>
           {sustainabilityThemes.map((theme, i) => (
             <StaggerItem key={theme.en}>
-              <div
-                className="p-6 border min-h-[140px] flex flex-col justify-end"
-                style={{
-                  borderColor: "rgba(181,133,22,0.25)",
-                  background: i % 2 === 0 ? "rgba(181,133,22,0.06)" : "transparent",
-                }}
-              >
-                <span className="text-xs font-bold mb-3" style={{ color: "var(--color-brand-gold)" }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="font-bold">{tx(theme, lang)}</p>
+              <div className="feature-card">
+                <span className="section-index">{String(i + 1).padStart(2, "0")}</span>
+                <p className="section-card-title">{tx(theme, lang)}</p>
               </div>
             </StaggerItem>
           ))}

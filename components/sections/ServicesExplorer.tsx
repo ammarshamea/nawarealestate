@@ -50,14 +50,14 @@ export default function ServicesExplorer() {
     <section id={sectionAnchors.services} className="section-padding surface-ivory">
       <div className="container-luxury">
         <StaggerReveal>
-          <StaggerItem>
-            <Eyebrow label={t.services.label} />
-          </StaggerItem>
-          <StaggerItem>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold">
-              {tx(t.services.h2a, lang)} {tx(t.services.h2b, lang)}
-            </h2>
-          </StaggerItem>
+          <div className="section-header">
+            <StaggerItem>
+              <Eyebrow label={t.services.label} />
+            </StaggerItem>
+            <StaggerItem>
+              <h2 className="section-title">{tx(t.services.h2a, lang)}</h2>
+            </StaggerItem>
+          </div>
         </StaggerReveal>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-10">
@@ -80,10 +80,8 @@ export default function ServicesExplorer() {
                     onFocus={() => setActive(i)}
                     onClick={() => setActive(i)}
                   >
-                    <span className="text-xs font-bold" style={{ color: "var(--color-brand-gold)" }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="block mt-1 text-lg font-bold">{tx(svc.title, lang)}</span>
+                    <span className="section-index">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="block mt-1 section-card-title">{tx(svc.title, lang)}</span>
                   </button>
                 </li>
               );
@@ -114,7 +112,7 @@ export default function ServicesExplorer() {
               <AnimatePresence mode="wait">
                 <motion.p
                   key={active}
-                  className="text-white/90 text-sm md:text-base max-w-md leading-relaxed"
+                  className="text-white/90 section-body !mt-0 max-w-md !text-[clamp(0.9375rem,1.4vw,1rem)] !text-white/88"
                   initial={reducedMotion ? false : { opacity: 0, x: slideX }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={reducedMotion ? undefined : { opacity: 0, x: -slideX }}

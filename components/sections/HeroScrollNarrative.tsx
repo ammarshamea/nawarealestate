@@ -10,6 +10,7 @@ import { sectionAnchors } from "@/lib/data/sections";
 import { useSite } from "@/lib/context";
 import { t, tx } from "@/lib/i18n";
 import { getGsap, isMobileViewport } from "@/lib/motion/gsapClient";
+import { useGsapScrollContext } from "@/lib/motion/useGsapScrollContext";
 import { publicPath } from "@/lib/publicPath";
 
 const heroFrames = [
@@ -28,13 +29,49 @@ const contentVariants = {
 };
 
 export default function HeroScrollNarrative() {
-  const { lang, reducedMotion } = useSite();
+  const { lang, isAr, reducedMotion } = useSite();
   const containerRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const frameRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeStage, setActiveStage] = useState(0);
 
   const stages = t.hero.stages;
+  const stageSubtitles = t.hero.stageSubtitles;
+  const activeSubtitle = stageSubtitles[Math.min(activeStage, stageSubtitles.length - 1)];
+
+  useGsapScrollContext(containerRef, {
+    enabled: !reducedMotion,
+    deps: [lang, isAr],
+    setup: ({ ScrollTrigger }) => {
+      if (!containerRef.current || !pinRef.current) return;
+
+      const mobile = isMobileViewport();
+      const pinHeight = mobile ? "+=120%" : "+=180%";
+
+      const syncStage = (progress: number) => {
+        if (progress < 0.2) setActiveStage(0);
+        else if (progress < 0.45) setActiveStage(1);
+        else if (progress < 0.7) setActiveStage(2);
+        else if (progress < 0.92) setActiveStage(3);
+        else setActiveStage(4);
+      };
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: pinHeight,
+        pin: pinRef.current,
+        pinSpacing: true,
+        anticipatePin: 1,
+        scrub: mobile ? 0.5 : 0.65,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => syncStage(self.progress),
+        onLeaveBack: () => setActiveStage(0),
+      });
+
+      setActiveStage(0);
+    },
+  });
 
   useEffect(() => {
     const link = document.createElement("link");
@@ -46,54 +83,6 @@ export default function HeroScrollNarrative() {
       document.head.removeChild(link);
     };
   }, []);
-
-  useEffect(() => {
-    if (reducedMotion || !containerRef.current || !pinRef.current) {
-      return;
-    }
-
-    let ctx: { revert: () => void } | undefined;
-    let cancelled = false;
-
-    getGsap().then(({ gsap, ScrollTrigger }) => {
-      if (cancelled || !containerRef.current || !pinRef.current) return;
-
-      ctx = gsap.context(() => {
-        const mobile = isMobileViewport();
-        const pinHeight = mobile ? "+=120%" : "+=180%";
-
-        const syncStage = (progress: number) => {
-          if (progress < 0.2) setActiveStage(0);
-          else if (progress < 0.45) setActiveStage(1);
-          else if (progress < 0.7) setActiveStage(2);
-          else if (progress < 0.92) setActiveStage(3);
-          else setActiveStage(4);
-        };
-
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: "top top",
-          end: pinHeight,
-          pin: pinRef.current,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: mobile ? 0.5 : 0.65,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => syncStage(self.progress),
-          onLeaveBack: () => setActiveStage(0),
-        });
-
-        setActiveStage(0);
-
-        ScrollTrigger.refresh();
-      }, containerRef);
-    });
-
-    return () => {
-      cancelled = true;
-      ctx?.revert();
-    };
-  }, [reducedMotion]);
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -152,19 +141,19 @@ export default function HeroScrollNarrative() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
 
         <motion.div
-          className="relative z-10 flex h-full flex-col justify-end container-luxury pb-12 md:pb-20 pt-[var(--nav-height)]"
+          className="relative z-10 flex h-full flex-col justify-end container-luxury pb-16 md:pb-24 pt-[var(--nav-height)] overflow-visible"
           variants={contentVariants}
           initial={reducedMotion ? "visible" : "hidden"}
           animate="visible"
           transition={{ duration: 0.85, ease: EASE, staggerChildren: 0.08 }}
         >
-          <motion.p className="eyebrow mb-4" style={{ color: "#ebbf5b" }} variants={contentVariants}>
+          <motion.p className="eyebrow mb-4" variants={contentVariants}>
             {tx(t.hero.eyebrow, lang)}
           </motion.p>
           <StageHeadline lang={lang} activeStage={activeStage} stages={stages} reducedMotion={reducedMotion} />
           <AnimatePresence mode="wait">
             <motion.p
-              key={`support-${activeStage}`}
+              key={`support-${activeStage}-${lang}`}
               className="mt-4 max-w-xl text-sm md:text-base leading-relaxed"
               style={{ color: "rgba(255,255,255,0.72)" }}
               initial={reducedMotion ? false : { opacity: 0, y: 12 }}
@@ -172,7 +161,7 @@ export default function HeroScrollNarrative() {
               exit={reducedMotion ? undefined : { opacity: 0, y: -8 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
-              {tx(t.hero.supporting, lang)}
+              {tx(activeSubtitle, lang)}
             </motion.p>
           </AnimatePresence>
           <motion.p
@@ -240,7 +229,7 @@ function StageHeadline({
   if (reducedMotion) {
     return (
       <h1
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl hero-headline-plain whitespace-pre-line"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-4xl hero-headline-plain whitespace-pre-line"
         style={{ color: "#ffffff" }}
       >
         {text}
@@ -251,8 +240,8 @@ function StageHeadline({
   return (
     <AnimatePresence mode="wait">
       <motion.h1
-        key={activeStage}
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl hero-headline-plain overflow-hidden"
+        key={`${activeStage}-${lang}`}
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-4xl hero-headline-plain overflow-visible"
         style={{ color: "#ffffff" }}
         initial="hidden"
         animate="visible"
@@ -266,13 +255,12 @@ function StageHeadline({
         {lines.map((line, i) => (
           <motion.span
             key={`${activeStage}-${i}`}
-            className="block"
+            className="block hero-headline-line"
             variants={{
-              hidden: { opacity: 0, y: 28, clipPath: "inset(100% 0 0 0)" },
+              hidden: { opacity: 0, y: 28 },
               visible: {
                 opacity: 1,
                 y: 0,
-                clipPath: "inset(0% 0 0 0)",
                 transition: { duration: 0.65, ease: EASE },
               },
               exit: {

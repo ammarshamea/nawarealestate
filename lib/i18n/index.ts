@@ -4,30 +4,59 @@ export const t = {
   nav: {
     home: { en: "Home", ar: "الرئيسية" },
     projects: { en: "Developments", ar: "المشاريع" },
-    about: { en: "About Nawah", ar: "عن نواة" },
+    about: { en: "About Us", ar: "من نحن" },
     philosophy: { en: "Philosophy", ar: "فلسفتنا" },
     services: { en: "Services", ar: "خدماتنا" },
     investment: { en: "Investment", ar: "الاستثمار" },
     contact: { en: "Contact", ar: "تواصل معنا" },
     partnership: { en: "Start a Partnership", ar: "ابدأ شراكة" },
     inquire: { en: "Inquire Now", ar: "استفسر الآن" },
+    story: { en: "Company Story", ar: "قصة الشركة" },
+    targetMarket: { en: "Target Market", ar: "السوق المستهدف" },
+    mission: { en: "Our Mission", ar: "رسالتنا" },
+    vision2030: { en: "Vision 2030", ar: "رؤية 2030" },
+    values: { en: "Core Values", ar: "قيمنا" },
+    partnerships: { en: "Partnerships", ar: "الشراكات" },
+    sustainability: { en: "Sustainability", ar: "الاستدامة" },
   },
 
   brand: {
-    name: { en: "NAWAH", ar: "نواة" },
-    title: { en: "Nawah Real Estate Development", ar: "نواة التطوير العقاري" },
+    name: { en: "NAWA", ar: "نواة" },
+    title: { en: "Nawah Real Estate Development & Contracting", ar: "نواة للتطوير العقاري والمقاولات" },
     tagline: { en: "Crafting Luxury… Building Lifestyles", ar: "نصنع الفخامة… ونبني أسلوب حياة" },
-    sub: { en: "Real Estate Development", ar: "التطوير العقاري" },
+    sub: { en: "Real Estate Development & Contracting", ar: "للتطوير العقاري والمقاولات" },
   },
 
   hero: {
-    eyebrow: { en: "Nawah Real Estate Development", ar: "نواة التطوير العقاري" },
+    eyebrow: { en: "Nawah Real Estate Development & Contracting", ar: "نواة للتطوير العقاري والمقاولات" },
     location: { en: "Riyadh · Saudi Arabia", ar: "الرياض · المملكة العربية السعودية" },
     headline: { en: "From the Core of an Idea,\nWe Create Destinations for Life", ar: "من نواة الفكرة\nنصنع وجهات للحياة" },
     supporting: {
-      en: "We develop premium residential and commercial destinations that unite location, design, and value — crafting experiences that reflect the future of life in the Kingdom.",
-      ar: "نطور وجهات سكنية وتجارية راقية تجمع بين الموقع، التصميم، والقيمة، لنصنع تجارب تعكس مستقبل الحياة في المملكة.",
+      en: "We develop and execute premium residential and commercial destinations that unite location, design, and value, crafting experiences that reflect the future of life in the Kingdom.",
+      ar: "نطوّر وننفّذ وجهات سكنية وتجارية راقية تجمع بين الموقع، التصميم، والقيمة، لنصنع تجارب تعكس مستقبل الحياة في المملكة.",
     },
+    stageSubtitles: [
+      {
+        en: "Every destination begins with a clear vision built on innovation, quality, and integrated living and business environments.",
+        ar: "كل وجهة تبدأ من رؤية واضحة تجمع الابتكار والجودة وتجربة سكنية وتجارية متكاملة.",
+      },
+      {
+        en: "Strategic sites in Riyadh's most promising corridors, where urban growth meets real demand.",
+        ar: "مواقع استراتيجية في أبرز محاور الرياض، حيث يلتقي النمو العمراني بالطلب الحقيقي.",
+      },
+      {
+        en: "Architecture and design that turn vision into a refined experience with a distinctly modern luxury character.",
+        ar: "تصميم وعمارة يحوّلان الرؤية إلى تجربة راقية بأسلوب فاخر ومعاصر.",
+      },
+      {
+        en: "Lasting value for investors and residents, grounded in quality, market insight, and strategic execution.",
+        ar: "قيمة مستدامة للمستثمرين والسكان، مبنية على الجودة وفهم السوق والتنفيذ الاستراتيجي.",
+      },
+      {
+        en: "From development to delivery, we build lifestyles that reflect the future of living in Saudi Arabia.",
+        ar: "من التطوير إلى التسليم، نبني أسلوب حياة يعكس مستقبل العيش في المملكة.",
+      },
+    ],
     stages: [
       { en: "From the core of an idea", ar: "من نواة الفكرة" },
       { en: "We choose the location", ar: "نختار الموقع" },
@@ -43,33 +72,33 @@ export const t = {
     line3en: { en: "Building", ar: "ونبني" },
     line3gold: { en: "Lifestyles.", ar: "أسلوب حياة." },
     sub: {
-      en: "Nawah Real Estate Development is a leading Saudi company specializing in high-end residential and commercial developments in Riyadh. Established with a clear vision, Nawah aims to redefine real estate development through innovation, quality, and the creation of integrated living and business environments.",
-      ar: "نواة التطوير العقاري هي شركة سعودية رائدة متخصصة في تطوير المشاريع السكنية والتجارية الراقية في مدينة الرياض. تأسست الشركة برؤية واضحة تهدف إلى تقديم مفهوم جديد للتطوير العقاري، يرتكز على الابتكار، الجودة، وصناعة تجربة سكنية وتجارية متكاملة.",
+      en: "Nawa Real Estate Development & Contracting is a leading Saudi company specializing in the development and execution of high-end residential and commercial projects in Riyadh. Established with a clear vision, Nawa aims to redefine real estate development through innovation, quality, and the creation of integrated living and business environments.",
+      ar: "نواة للتطوير العقاري والمقاولات هي شركة سعودية رائدة متخصصة في تطوير المشاريع السكنية والتجارية الراقية وتنفيذها في مدينة الرياض. تأسست الشركة برؤية واضحة تهدف إلى تقديم مفهوم جديد للتطوير العقاري، يرتكز على الابتكار، الجودة، وصناعة تجربة سكنية وتجارية متكاملة.",
     },
   },
 
   intro: {
-    label: { en: "About Nawah", ar: "عن نواة" },
+    label: { en: "About Us", ar: "من نحن" },
     h2a: { en: "We Don't Develop", ar: "نحن لا نطوّر" },
     h2b: { en: "Buildings Alone", ar: "مجرد مبانٍ" },
     morphFrom: { en: "buildings", ar: "مبانٍ" },
     morphTo: { en: "destinations", ar: "وجهات" },
     p1: {
-      en: "Nawah Real Estate Development is a Saudi company specializing in premium residential and commercial projects in Riyadh, with a vision centered on innovation, quality, and integrated experiences.",
-      ar: "نواة التطوير العقاري شركة سعودية متخصصة في تطوير المشاريع السكنية والتجارية الراقية في مدينة الرياض، برؤية ترتكز على الابتكار والجودة وصناعة تجربة متكاملة.",
+      en: "Nawah is a Saudi developer and contractor focused on premium residential and commercial destinations in Riyadh, pairing strategic land positioning with integrated design and in-house execution.",
+      ar: "نواة مطوّر ومقاول سعودي يركز على وجهات سكنية وتجارية راقية في الرياض، يجمع بين تموضع استراتيجي للأراضي وتصميم متكامل وتنفيذ ذاتي.",
     },
     p2: {
-      en: "We do not simply build properties — we create destinations that reflect a modern luxury lifestyle.",
-      ar: "نحن لا نطوّر مجرد مبانٍ، بل نبتكر وجهات متكاملة.",
+      en: "We don't just develop buildings. We create integrated destinations that reflect a modern luxury lifestyle, and execute them directly through our in-house contracting arm, in step with the Kingdom's major urban transformation.",
+      ar: "نحن لا نطوّر مجرد مبانٍ، بل نبتكر وجهات متكاملة تعكس أسلوب حياة فاخر، ونتولى تنفيذها بأنفسنا من خلال ذراعنا الخاص للمقاولات، بما يواكب التحول العمراني الكبير الذي تشهده المملكة.",
     },
   },
 
   story: {
     label: { en: "Company Story", ar: "قصة الشركة" },
-    headline: { en: "Understanding the Market\nIs the Beginning of Right Development", ar: "فهم السوق\nهو بداية التطوير الصحيح" },
+    headline: { en: "Deep Market Understanding,\nPurposeful Development", ar: "فهم عميق للسوق\nوتطوير هادف" },
     body: {
-      en: "Nawah emerged from a deep understanding of the Saudi real estate market — delivering projects that unite modern design, prime locations, and investment value.",
-      ar: "انطلقت نواة من فهم عميق للسوق العقاري في المملكة، لتقدم مشاريع تجمع بين التصميم العصري، الموقع المميز، والقيمة الاستثمارية.",
+      en: "Nawa was founded based on a deep understanding of the Saudi real estate market, particularly the fast-growing luxury segment. As demand for high-quality developments increased, Nawa emerged to bridge the gap by delivering projects that combine modern design, prime locations, and strong investment value.",
+      ar: "انطلقت نواة من فهم عميق للسوق العقاري في المملكة، خاصة في القطاع الراقي الذي يشهد نموًا متسارعًا. ومع ارتفاع الطلب على المشاريع عالية الجودة، جاءت نواة لتسد فجوة في السوق من خلال تقديم منتجات عقارية تجمع بين التصميم العصري، الموقع المميز، والقيمة الاستثمارية.",
     },
   },
 
@@ -77,22 +106,22 @@ export const t = {
     label: { en: "Development Philosophy", ar: "فلسفة التطوير" },
     title: { en: "Location · Design · Value", ar: "الموقع · التصميم · القيمة" },
     subtitle: {
-      en: "Map → Blueprint → Destination",
-      ar: "خريطة → مخطط → وجهة",
+      en: "We believe successful developments are built on three pillars: Location, Design, and Value.",
+      ar: "نؤمن أن المشروع الناجح يقوم على ثلاثة عناصر رئيسية: الموقع، التصميم، والقيمة.",
     },
   },
 
   valuesSection: {
     label: { en: "Core Values", ar: "قيمنا" },
-    title: { en: "Our Manifesto", ar: "رسالتنا" },
+    title: { en: "Our Core Values", ar: "قيمنا" },
   },
 
   sustainabilitySection: {
     label: { en: "Sustainability", ar: "الاستدامة" },
-    headline: { en: "Sustainability Begins\nWith a Design Decision", ar: "استدامة تبدأ\nمن قرار التصميم" },
+    headline: { en: "Responsible Development\nFrom Design to Delivery", ar: "تطوير مسؤول\nمن التصميم إلى التنفيذ" },
     body: {
-      en: "Responsible development through material choices, energy efficiency, and intelligent spatial planning.",
-      ar: "تطوير مسؤول عبر اختيار المواد، كفاءة الطاقة، والتخطيط المكاني الذكي.",
+      en: "Eco-friendly materials, energy efficiency, and smart design that reduces waste across every project.",
+      ar: "استخدام مواد صديقة للبيئة، كفاءة الطاقة، وتصميمات ذكية تقلل الهدر في كل مشروع.",
     },
   },
 
@@ -100,22 +129,23 @@ export const t = {
     label: { en: "Partnerships", ar: "الشراكات" },
     headline: { en: "Partnerships Build\nStronger Projects", ar: "الشراكات تصنع\nمشاريع أقوى" },
     body: {
-      en: "We collaborate with international consultants, leading contractors, and specialized advisors to deliver excellence.",
-      ar: "نتعاون مع مكاتب استشارية عالمية، مقاولين رائدين، ومستشارين متخصصين لتحقيق التميز.",
+      en: "We collaborate with international engineering consultants, leading contractors, and specialized advisors to deliver excellence.",
+      ar: "نتعاون مع مكاتب هندسية عالمية، شركات مقاولات كبرى، واستشاريين متخصصين لتحقيق التميز.",
     },
     cta: { en: "Start a Partnership with Nawah", ar: "ابدأ شراكة مع نواة" },
   },
 
   services: {
     label: { en: "Our Services", ar: "خدماتنا" },
-    h2a: { en: "Our", ar: "خدماتنا" },
-    h2b: { en: "Services", ar: "" },
+    h2a: { en: "Our Services", ar: "خدماتنا" },
+    h2b: { en: "", ar: "" },
     sub: { en: "", ar: "" },
     items: [
       { en: "Luxury Residential Development", ar: "تطوير المشاريع السكنية الفاخرة" },
       { en: "Commercial Development", ar: "تطوير المشاريع التجارية" },
       { en: "Mixed-Use Development", ar: "تطوير مشاريع متعددة الاستخدام" },
-      { en: "Project Management", ar: "إدارة المشاريع" },
+      { en: "General Contracting & Project Execution", ar: "المقاولات العامة وتنفيذ المشاريع" },
+      { en: "Project Management & Construction Supervision", ar: "إدارة المشاريع والإشراف على التنفيذ" },
       { en: "Joint Venture Development", ar: "التطوير المشترك مع المستثمرين" },
       { en: "Feasibility Studies", ar: "دراسات الجدوى العقارية" },
     ],
@@ -123,8 +153,8 @@ export const t = {
 
   projectTypes: {
     label: { en: "Project Types", ar: "أنواع المشاريع" },
-    h2a: { en: "Project", ar: "أنواع المشاريع" },
-    h2b: { en: "Types", ar: "" },
+    h2a: { en: "Project Types", ar: "أنواع المشاريع" },
+    h2b: { en: "", ar: "" },
     items: [
       { en: "Luxury Compounds", ar: "مجمعات سكنية فاخرة" },
       { en: "Private Villas", ar: "فلل مستقلة" },
@@ -137,6 +167,11 @@ export const t = {
 
   targetMarket: {
     label: { en: "Target Market", ar: "السوق المستهدف" },
+    headline: { en: "Built for Investors,\nCorporates, and Luxury Buyers", ar: "مصمم للمستثمرين\nوالشركات وباحثي الفخامة" },
+    intro: {
+      en: "Our developments are shaped for audiences who expect prime locations, refined design, and lasting investment value.",
+      ar: "مشاريعنا موجهة لشرائح تبحث عن مواقع مميزة، وتصميم راقٍ، وقيمة استثمارية مستدامة.",
+    },
     items: [
       { en: "Real estate investors", ar: "المستثمرين العقاريين" },
       { en: "Corporate clients", ar: "الشركات الكبرى" },
@@ -149,8 +184,8 @@ export const t = {
     h1a: { en: "Landmark", ar: "مشاريع" },
     h1b: { en: "Developments", ar: "متميزة" },
     sub: {
-      en: "From luxury compounds to landmark towers — every Nawah development is a statement of quality, vision, and lasting value.",
-      ar: "من المجمعات الفاخرة إلى الأبراج الشاهقة — كل مشروع من نواة هو تعبير عن الجودة والرؤية والقيمة الدائمة.",
+      en: "From luxury compounds to landmark towers, every Nawah development is a statement of quality, vision, and lasting value.",
+      ar: "من المجمعات الفاخرة إلى الأبراج الشاهقة، كل مشروع من نواة هو تعبير عن الجودة والرؤية والقيمة الدائمة.",
     },
     showing: { en: "Showing", ar: "عرض" },
     all: { en: "All", ar: "الكل" },
@@ -187,14 +222,14 @@ export const t = {
     visionLabel: { en: "Our Vision", ar: "رؤيتنا" },
     visionTitle: { en: "", ar: "" },
     visionText: {
-      en: "To become one of the leading luxury real estate developers in Saudi Arabia and contribute to shaping future cities in alignment with Saudi Vision 2030.",
-      ar: "أن نكون من أبرز مطوري المشاريع العقارية الفاخرة في المملكة، وأن نساهم في تشكيل مستقبل المدن بما يتماشى مع مستهدفات رؤية السعودية 2030.",
+      en: "To become one of the leading luxury real estate developers and contractors in Saudi Arabia and contribute to shaping future cities in alignment with Saudi Vision 2030.",
+      ar: "أن نكون من أبرز مطوري ومقاولي المشاريع العقارية الفاخرة في المملكة، وأن نساهم في تشكيل مستقبل المدن بما يتماشى مع مستهدفات رؤية السعودية 2030.",
     },
     missionLabel: { en: "Our Mission", ar: "رسالتنا" },
     missionTitle: { en: "", ar: "" },
     missionText: {
-      en: "To deliver premium real estate developments that provide real value to clients and investors through innovation, quality, and adherence to international standards.",
-      ar: "تطوير مشاريع عقارية راقية تقدم قيمة حقيقية للعملاء والمستثمرين، من خلال الابتكار، الجودة، والالتزام بأعلى المعايير العالمية.",
+      en: "To develop and execute premium real estate projects that provide real value to clients and investors through innovation, quality, and adherence to the highest international standards in development and contracting.",
+      ar: "تطوير وتنفيذ مشاريع عقارية راقية تقدم قيمة حقيقية للعملاء والمستثمرين، من خلال الابتكار، الجودة، والالتزام بأعلى المعايير العالمية في التطوير والمقاولات.",
     },
     valuesLabel: { en: "Our Core Values", ar: "قيمنا" },
     valuesH2: { en: "", ar: "" },
@@ -232,11 +267,12 @@ export const t = {
       { en: "Prime locations", ar: "مواقع استراتيجية" },
       { en: "High execution quality", ar: "جودة تنفيذ عالية" },
       { en: "Luxury designs", ar: "تصميمات فاخرة" },
+      { en: "In-house execution capability via our contracting arm", ar: "قدرة تنفيذية ذاتية عبر ذراع المقاولات" },
     ],
     alignmentLabel: { en: "Alignment with Vision", ar: "التزامنا برؤية المملكة" },
     alignmentText: {
-      en: "We support Saudi Vision 2030 by delivering developments that enhance quality of life and drive economic growth.",
-      ar: "نساهم في تحقيق مستهدفات رؤية السعودية 2030 من خلال تطوير مشاريع ترفع جودة الحياة وتدعم الاقتصاد.",
+      en: "We support Saudi Vision 2030 by developing and executing projects that enhance quality of life and drive economic growth.",
+      ar: "نساهم في تحقيق مستهدفات رؤية السعودية 2030 من خلال تطوير وتنفيذ مشاريع ترفع جودة الحياة وتدعم الاقتصاد.",
     },
     ctaTitle: { en: "Partner with Nawah", ar: "شارك نواة رحلة النجاح" },
     ctaBtn1: { en: "Get In Touch", ar: "تواصل معنا" },
@@ -247,33 +283,50 @@ export const t = {
     label: { en: "Investment Value", ar: "القيمة الاستثمارية" },
     headline: { en: "We Build Value\nBeyond the Moment of Delivery", ar: "نبني قيمة\nتتجاوز لحظة التسليم" },
     themes: [
-      { en: "Studied value", ar: "قيمة مدروسة" },
-      { en: "Long-term vision", ar: "رؤية طويلة المدى" },
-      { en: "Strategic selection", ar: "اختيار استراتيجي" },
-      { en: "Market understanding", ar: "فهم للسوق" },
+      { en: "Strong ROI", ar: "عوائد استثمارية قوية" },
+      { en: "Long-term growth", ar: "نمو طويل المدى" },
+      { en: "High-demand projects", ar: "مشاريع ذات طلب مرتفع" },
+      { en: "Risk mitigation", ar: "تقليل المخاطر" },
     ],
     title: { en: "", ar: "" },
     sub: { en: "", ar: "" },
     items: [
-      { en: "Strong investment value", ar: "قيمة استثمارية قوية" },
+      { en: "Strong ROI", ar: "عوائد استثمارية قوية" },
       { en: "Long-term growth", ar: "نمو طويل المدى" },
       { en: "High-demand projects", ar: "مشاريع ذات طلب مرتفع" },
-      { en: "Risk-conscious development", ar: "تطوير واعٍ للمخاطر" },
+      { en: "Risk mitigation", ar: "تقليل المخاطر" },
     ],
   },
 
   vision: {
-    label: { en: "Our Direction", ar: "توجّهنا" },
-    headline: { en: "We Develop Today\nWhat Will Shape Tomorrow's Cities", ar: "نطوّر اليوم\nما سيصنع مدن الغد" },
+    label: { en: "Our Vision", ar: "رؤيتنا" },
+    missionLabel: { en: "Our Mission", ar: "رسالتنا" },
+    alignmentLabel: { en: "Alignment with Vision", ar: "التزامنا برؤية المملكة" },
+    headline: { en: "Leading Luxury Development\nAcross Saudi Arabia", ar: "ريادة التطوير العقاري الفاخر\nفي المملكة" },
     body: {
-      en: "We strive to contribute to shaping the future of cities — developing projects that elevate quality of life and align with the Kingdom's urban transformation.",
-      ar: "نسعى للمساهمة في تشكيل مستقبل المدن، وتطوير مشاريع ترتقي بجودة الحياة وتواكب التحول العمراني في المملكة.",
+      en: "We strive to contribute to shaping the future of cities by developing and executing projects that elevate quality of life and align with the Kingdom's urban transformation.",
+      ar: "نسعى للمساهمة في تشكيل مستقبل المدن، وتطوير وتنفيذ مشاريع ترتقي بجودة الحياة وتواكب التحول العمراني في المملكة.",
     },
     title: { en: "", ar: "" },
     sub: {
-      en: "We support Saudi Vision 2030 by delivering developments that enhance quality of life and drive economic growth.",
-      ar: "نساهم في تحقيق مستهدفات رؤية السعودية 2030 من خلال تطوير مشاريع ترفع جودة الحياة وتدعم الاقتصاد.",
+      en: "We support Saudi Vision 2030 by developing and executing projects that enhance quality of life and drive economic growth.",
+      ar: "نساهم في تحقيق مستهدفات رؤية السعودية 2030 من خلال تطوير وتنفيذ مشاريع ترفع جودة الحياة وتدعم الاقتصاد.",
     },
+  },
+
+  mission: {
+    label: { en: "Our Mission", ar: "رسالتنا" },
+    headline: { en: "Premium Projects\nWith Real Value", ar: "مشاريع راقية\nبقيمة حقيقية" },
+  },
+
+  vision2030: {
+    label: { en: "Vision 2030 Alignment", ar: "مواءمة رؤية 2030" },
+    headline: { en: "Shaping Cities\nFor Tomorrow", ar: "تشكيل مدن\nللمستقبل" },
+  },
+
+  competitiveAdvantage: {
+    label: { en: "Competitive Advantage", ar: "ميزتنا التنافسية" },
+    headline: { en: "Integrated Development\nand Execution", ar: "تطوير وتنفيذ\nمتكامل" },
   },
 
   contact: {
@@ -337,6 +390,7 @@ export const t = {
     schedule: { en: "Schedule Consultation", ar: "حجز استشارة" },
     viewPrj: { en: "View Projects", ar: "عرض المشاريع" },
     nav: { en: "Navigation", ar: "التنقل" },
+    moreLinks: { en: "Explore More", ar: "استكشف المزيد" },
     devTypes: { en: "Development Types", ar: "أنواع التطوير" },
     contact: { en: "Contact", ar: "التواصل" },
     rights: { en: "All rights reserved.", ar: "جميع الحقوق محفوظة." },

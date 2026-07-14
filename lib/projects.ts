@@ -48,8 +48,8 @@ export const projects: Project[] = [
       ar: "مجمع فاخر مسوّر يقدم فللاً وتاون هاوس بمرافق تشبه المنتجعات في شمال الرياض.",
     },
     longDesc: {
-      en: "Nawah Palms is our flagship residential compound — a meticulously master-planned gated community set across 45,000 m² in the prestigious north of Riyadh. The compound comprises 120 units including luxury villas, spacious townhouses, and exclusive garden duplexes, each designed to the highest international standards. Residents enjoy resort-style living with a clubhouse, temperature-controlled pools, landscaped gardens, fitness centers, and 24/7 security. Every detail — from the Italian-imported marble flooring to the smart-home automation systems — reflects Nawah's unwavering commitment to elevating the Saudi residential experience.",
-      ar: "نخيل نواة هو مجمعنا السكني الرئيسي — مجتمع مسوّر مخطط بعناية على مساحة 45,000 م² في الشمال المرموق من الرياض. يضم المجمع 120 وحدة تشمل فللاً فاخرة وتاون هاوس فسيحة ودوبلكس حديقة حصرية، كل منها مصمم وفق أعلى المعايير الدولية. يتمتع السكان بحياة تشبه المنتجعات مع نادٍ وحمامات سباحة مكيفة وحدائق منسقة ومراكز لياقة وأمن على مدار الساعة. كل تفصيل — من الرخام الإيطالي المستورد إلى أنظمة المنزل الذكي — يعكس التزام نواة الثابت بالارتقاء بالتجربة السكنية السعودية.",
+      en: "Nawah Palms is our flagship residential compound, a meticulously master-planned gated community set across 45,000 m² in the prestigious north of Riyadh. The compound comprises 120 units including luxury villas, spacious townhouses, and exclusive garden duplexes, each designed to the highest international standards. Residents enjoy resort-style living with a clubhouse, temperature-controlled pools, landscaped gardens, fitness centers, and 24/7 security. Every detail, from the Italian-imported marble flooring to the smart-home automation systems, reflects Nawah's unwavering commitment to elevating the Saudi residential experience.",
+      ar: "نخيل نواة هو مجمعنا السكني الرئيسي، مجتمع مسوّر مخطط بعناية على مساحة 45,000 م² في الشمال المرموق من الرياض. يضم المجمع 120 وحدة تشمل فللاً فاخرة وتاون هاوس فسيحة ودوبلكس حديقة حصرية، كل منها مصمم وفق أعلى المعايير الدولية. يتمتع السكان بحياة تشبه المنتجعات مع نادٍ وحمامات سباحة مكيفة وحدائق منسقة ومراكز لياقة وأمن على مدار الساعة. كل تفصيل، من الرخام الإيطالي المستورد إلى أنظمة المنزل الذكي، يعكس التزام نواة الثابت بالارتقاء بالتجربة السكنية السعودية.",
     },
     amenities: [
       { en: "Private Swimming Pools", ar: "مسابح خاصة" },
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     ],
     investment: {
       roi:   "10–14% p.a.",
-      type:  { en: "Freehold Residential", ar: "تملك حر — سكني" },
+      type:  { en: "Freehold Residential", ar: "تملك حر، سكني" },
       tenure: { en: "Perpetual Ownership", ar: "ملكية دائمة" },
       note: {
         en: "Payment plans available. Contact our investor advisors for detailed financial modelling.",
@@ -98,12 +98,12 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=85",
     ],
     desc: {
-      en: "Bespoke private villas in Riyadh's most prestigious neighborhood — the Diplomatic Quarter.",
-      ar: "فلل خاصة حصرية في أرقى أحياء الرياض — الحي الدبلوماسي.",
+      en: "Bespoke private villas in Riyadh's most prestigious neighborhood, the Diplomatic Quarter.",
+      ar: "فلل خاصة حصرية في أرقى أحياء الرياض، الحي الدبلوماسي.",
     },
     longDesc: {
-      en: "Al Noor Villas represents the pinnacle of Saudi residential luxury. Situated within the exclusive Diplomatic Quarter of Riyadh, this intimate collection of 18 villas offers unparalleled privacy and prestige. Each villa is a unique masterpiece — bespoke in design, palatial in scale, and equipped with the finest materials sourced from Italy, France, and the UK. With private pools, dedicated household staff quarters, and direct access to the Quarter's parks and walking trails, Al Noor offers a lifestyle reserved for the very few.",
-      ar: "تمثل فلل النور قمة الفخامة السكنية السعودية. تقع في الحي الدبلوماسي الحصري بالرياض، وتقدم هذه المجموعة الحميمة المؤلفة من 18 فيلا خصوصية ومكانة لا مثيل لها. كل فيلا تحفة فريدة — حصرية في تصميمها، فسيحة في حجمها، ومجهزة بأفضل المواد من إيطاليا وفرنسا والمملكة المتحدة. مع مسابح خاصة وغرف طاقم منزلي مخصصة وإمكانية الوصول المباشر إلى حدائق الحي ومسارات المشي، تقدم فلل النور أسلوب حياة محجوز للقلة المختارين.",
+      en: "Al Noor Villas represents the pinnacle of Saudi residential luxury. Situated within the exclusive Diplomatic Quarter of Riyadh, this intimate collection of 18 villas offers unparalleled privacy and prestige. Each villa is a unique masterpiece: bespoke in design, palatial in scale, and equipped with the finest materials sourced from Italy, France, and the UK. With private pools, dedicated household staff quarters, and direct access to the Quarter's parks and walking trails, Al Noor offers a lifestyle reserved for the very few.",
+      ar: "تمثل فلل النور قمة الفخامة السكنية السعودية. تقع في الحي الدبلوماسي الحصري بالرياض، وتقدم هذه المجموعة الحميمة المؤلفة من 18 فيلا خصوصية ومكانة لا مثيل لها. كل فيلا تحفة فريدة، حصرية في تصميمها، فسيحة في حجمها، ومجهزة بأفضل المواد من إيطاليا وفرنسا والمملكة المتحدة. مع مسابح خاصة وغرف طاقم منزلي مخصصة وإمكانية الوصول المباشر إلى حدائق الحي ومسارات المشي، تقدم فلل النور أسلوب حياة محجوز للقلة المختارين.",
     },
     amenities: [
       { en: "Private Pool & Garden",    ar: "حديقة ومسبح خاص"        },
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     ],
     investment: {
       roi:   "8–12% p.a.",
-      type:  { en: "Freehold Luxury Villa", ar: "تملك حر — فيلا فاخرة" },
+      type:  { en: "Freehold Luxury Villa", ar: "تملك حر، فيلا فاخرة" },
       tenure: { en: "Perpetual Ownership",  ar: "ملكية دائمة"           },
       note: {
         en: "Limited collection of 18 villas. Viewing by private appointment only.",
@@ -206,8 +206,8 @@ export const projects: Project[] = [
       ar: "شقق سماء فائقة الفخامة بإطلالات بانورامية على الرياض وخدمات كونسيرج كاملة.",
     },
     longDesc: {
-      en: "Serenity Residences redefines urban apartment living in Riyadh. Rising 32 floors above Al Olaya's golden mile, this landmark tower houses 200 ultra-premium apartments — from studios to 4-bedroom penthouses — each with floor-to-ceiling glazing capturing the Riyadh skyline. A sky garden on floor 15, a residents-only rooftop infinity pool, and a full-service concierge team ensure that every day at Serenity is effortlessly exceptional.",
-      ar: "تُعيد مساكن الهدوء تعريف الحياة في شقق المدينة بالرياض. تتصاعد 32 طابقًا فوق الميل الذهبي في العليا، وتضم هذه البرج الشاهق 200 شقة فائقة الفخامة — من الاستوديوهات إلى البنتهاوس المكونة من 4 غرف نوم — كل منها مع نوافذ من الأرض للسقف تلتقط أفق الرياض.",
+      en: "Serenity Residences redefines urban apartment living in Riyadh. Rising 32 floors above Al Olaya's golden mile, this landmark tower houses 200 ultra-premium apartments, from studios to 4-bedroom penthouses, each with floor-to-ceiling glazing capturing the Riyadh skyline. A sky garden on floor 15, a residents-only rooftop infinity pool, and a full-service concierge team ensure that every day at Serenity is effortlessly exceptional.",
+      ar: "تُعيد مساكن الهدوء تعريف الحياة في شقق المدينة بالرياض. تتصاعد 32 طابقًا فوق الميل الذهبي في العليا، وتضم هذه البرج الشاهق 200 شقة فائقة الفخامة، من الاستوديوهات إلى البنتهاوس المكونة من 4 غرف نوم، كل منها مع نوافذ من الأرض للسقف تلتقط أفق الرياض.",
     },
     amenities: [
       { en: "Rooftop Infinity Pool",   ar: "مسبح لانهائي على السطح"     },
@@ -258,8 +258,8 @@ export const projects: Project[] = [
       ar: "مركز أعمال متكامل داخل KAFD يقدم مساحات مكتبية مرنة من الفئة A وخدمات راقية.",
     },
     longDesc: {
-      en: "Nawah Business Hub is strategically located within the King Abdullah Financial District — Saudi Arabia's most prestigious financial address. The 15-floor building provides 22,000 m² of flexible Grade-A office space, designed for the modern enterprise. From private executive suites to open collaborative floors, the Hub offers a full ecosystem: meeting rooms, auditoriums, premium catering, and 24/7 facility management. Its LEED Platinum certification reflects Nawah's commitment to sustainability and operational excellence.",
-      ar: "يقع مركز نواة للأعمال استراتيجيًا داخل مركز الملك عبدالله المالي — أرقى عنوان مالي في المملكة العربية السعودية. يوفر المبنى المكون من 15 طابقًا 22,000 م² من مساحات المكاتب المرنة من الفئة A، مصممة للمؤسسة الحديثة.",
+      en: "Nawah Business Hub is strategically located within the King Abdullah Financial District, Saudi Arabia's most prestigious financial address. The 15-floor building provides 22,000 m² of flexible Grade-A office space, designed for the modern enterprise. From private executive suites to open collaborative floors, the Hub offers a full ecosystem: meeting rooms, auditoriums, premium catering, and 24/7 facility management. Its LEED Platinum certification reflects Nawah's commitment to sustainability and operational excellence.",
+      ar: "يقع مركز نواة للأعمال استراتيجيًا داخل مركز الملك عبدالله المالي، أرقى عنوان مالي في المملكة العربية السعودية. يوفر المبنى المكون من 15 طابقًا 22,000 م² من مساحات المكاتب المرنة من الفئة A، مصممة للمؤسسة الحديثة.",
     },
     amenities: [
       { en: "Executive Meeting Suites",  ar: "غرف اجتماع تنفيذية"         },
@@ -310,7 +310,7 @@ export const projects: Project[] = [
       ar: "وجهة تجزئة فاخرة تمزج العلامات التجارية الراقية مع تجارب الطعام والترفيه الفاخرة.",
     },
     longDesc: {
-      en: "The Golden Mile is set to transform the retail landscape of West Riyadh. Spread across 35,000 m², this curated luxury destination brings together 180 premium retail units, anchored by flagship stores of the world's most iconic luxury brands. Beyond shopping, The Golden Mile offers an unmatched dining and entertainment experience — from Michelin-starred restaurant concepts to a rooftop sunset terrace and a luxury cinema. It is not merely a mall; it is a lifestyle destination.",
+      en: "The Golden Mile is set to transform the retail landscape of West Riyadh. Spread across 35,000 m², this curated luxury destination brings together 180 premium retail units, anchored by flagship stores of the world's most iconic luxury brands. Beyond shopping, The Golden Mile offers an unmatched dining and entertainment experience, from Michelin-starred restaurant concepts to a rooftop sunset terrace and a luxury cinema. It is not merely a mall; it is a lifestyle destination.",
       ar: "الميل الذهبي سيحول مشهد التجزئة في غرب الرياض. يمتد على 35,000 م²، وتجمع هذه الوجهة الفاخرة المختارة 180 وحدة تجزئة راقية، تتمحور حول المتاجر الرئيسية لأبرز العلامات التجارية الفاخرة في العالم.",
     },
     amenities: [
@@ -362,7 +362,7 @@ export const projects: Project[] = [
       ar: "مجمع حدائقي خضراء مع ممرات خضراء فسيحة ومرافق أسلوب حياة تشبه المنتجعات.",
     },
     longDesc: {
-      en: "Nawah Gardens is an escape from the city within the city. Designed around the concept of biophilic living, this garden compound in East Riyadh dedicates over 40% of its land to green spaces — shaded promenades, planted courtyards, water features, and fruit orchards. The 95 residential units range from garden-level duplexes to penthouse residences, all oriented to maximize views of the lush landscape. It is the first Nawah compound to achieve LEED Silver certification.",
+      en: "Nawah Gardens is an escape from the city within the city. Designed around the concept of biophilic living, this garden compound in East Riyadh dedicates over 40% of its land to green spaces: shaded promenades, planted courtyards, water features, and fruit orchards. The 95 residential units range from garden-level duplexes to penthouse residences, all oriented to maximize views of the lush landscape. It is the first Nawah compound to achieve LEED Silver certification.",
       ar: "حدائق نواة ملاذ من المدينة داخل المدينة. مصمم حول مفهوم العيش الحيوي، يخصص هذا المجمع الحدائقي في شرق الرياض أكثر من 40% من أرضه للمساحات الخضراء.",
     },
     amenities: [
@@ -414,7 +414,7 @@ export const projects: Project[] = [
       ar: "فلل خاصة فائقة الفخامة في النخيل مع مسابح خاصة وسينما خاصة وتصاميم داخلية حصرية.",
     },
     longDesc: {
-      en: "Crown Villas is the crown jewel of Nawah's residential portfolio. This ultra-exclusive collection of just 12 villas in the prestigious Al Nakheel district of Riyadh represents the very highest expression of Saudi residential luxury. Each villa spans over 700 m² on a private plot, featuring a private temperature-controlled pool, an indoor private cinema, a sky terrace, and a dedicated smart-home control room. The interiors are crafted by internationally renowned designers — each villa is a one-of-a-kind piece of residential art.",
+      en: "Crown Villas is the crown jewel of Nawah's residential portfolio. This ultra-exclusive collection of just 12 villas in the prestigious Al Nakheel district of Riyadh represents the very highest expression of Saudi residential luxury. Each villa spans over 700 m² on a private plot, featuring a private temperature-controlled pool, an indoor private cinema, a sky terrace, and a dedicated smart-home control room. The interiors are crafted by internationally renowned designers, and each villa is a one-of-a-kind piece of residential art.",
       ar: "فلل تاج هي جوهرة تاج محفظة نواة السكنية. هذه المجموعة الحصرية للغاية المؤلفة من 12 فيلا فقط في حي النخيل المرموق بالرياض تمثل أعلى تعبير عن الفخامة السكنية السعودية.",
     },
     amenities: [

@@ -10,51 +10,43 @@ import { sectionAnchors } from "@/lib/data/sections";
 import { useSite } from "@/lib/context";
 import { t, tx } from "@/lib/i18n";
 import { getGsap, isMobileViewport } from "@/lib/motion/gsapClient";
+import { useGsapScrollContext } from "@/lib/motion/useGsapScrollContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function PhilosophyPinned() {
-  const { lang, reducedMotion } = useSite();
+  const { lang, isAr, reducedMotion } = useSite();
   const containerRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
 
-  useEffect(() => {
-    if (reducedMotion || !containerRef.current || !pinRef.current) return;
+  useGsapScrollContext(containerRef, {
+    enabled: !reducedMotion,
+    deps: [lang, isAr],
+    setup: ({ ScrollTrigger }) => {
+      if (!containerRef.current || !pinRef.current) return;
 
-    let ctx: { revert: () => void } | undefined;
-    let cancelled = false;
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: isMobileViewport() ? "+=150%" : "+=250%",
+        pin: pinRef.current,
+        pinSpacing: true,
+        anticipatePin: 1,
+        scrub: 0.5,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const p = self.progress;
+          if (p < 0.33) setActive(0);
+          else if (p < 0.66) setActive(1);
+          else setActive(2);
+        },
+      });
 
-    getGsap().then(({ gsap, ScrollTrigger }) => {
-      if (cancelled || !containerRef.current || !pinRef.current) return;
-
-      ctx = gsap.context(() => {
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: "top top",
-          end: isMobileViewport() ? "+=150%" : "+=250%",
-          pin: pinRef.current,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 0.5,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const p = self.progress;
-            if (p < 0.33) setActive(0);
-            else if (p < 0.66) setActive(1);
-            else setActive(2);
-          },
-        });
-        ScrollTrigger.refresh();
-      }, containerRef);
-    });
-
-    return () => {
-      cancelled = true;
-      ctx?.revert();
-    };
-  }, [reducedMotion]);
+      setActive(0);
+    },
+  });
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -104,14 +96,12 @@ export default function PhilosophyPinned() {
               <Eyebrow label={t.philosophy.label} />
             </StaggerItem>
             <StaggerItem>
-              <h2 id="philosophy-heading" className="mt-4 text-2xl md:text-3xl font-bold">
+              <h2 id="philosophy-heading" className="section-title">
                 {tx(t.philosophy.title, lang)}
               </h2>
             </StaggerItem>
             <StaggerItem>
-              <p className="mt-2 text-sm" style={{ color: "var(--c-text-2)" }}>
-                {tx(t.philosophy.subtitle, lang)}
-              </p>
+              <p className="section-subtitle">{tx(t.philosophy.subtitle, lang)}</p>
             </StaggerItem>
           </StaggerReveal>
 
@@ -119,17 +109,15 @@ export default function PhilosophyPinned() {
             <div>
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={active}
+                  key={`${active}-${lang}`}
                   initial={reducedMotion ? false : { opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={reducedMotion ? undefined : { opacity: 0, y: -16 }}
                   transition={{ duration: 0.55, ease: EASE }}
                 >
-                  <span className="text-6xl md:text-7xl font-bold text-gold-gradient">{pillar.number}</span>
-                  <h3 className="mt-4 text-3xl md:text-4xl font-bold">{tx(pillar.title, lang)}</h3>
-                  <p className="mt-4 text-base leading-relaxed max-w-md" style={{ color: "var(--c-text-2)" }}>
-                    {tx(pillar.desc, lang)}
-                  </p>
+                  <span className="text-5xl md:text-6xl font-bold text-gold-gradient">{pillar.number}</span>
+                  <h3 className="mt-4 text-2xl md:text-[1.75rem] font-bold">{tx(pillar.title, lang)}</h3>
+                  <p className="mt-4 section-body max-w-md">{tx(pillar.desc, lang)}</p>
                 </motion.div>
               </AnimatePresence>
               <div className="mt-8 flex gap-3">

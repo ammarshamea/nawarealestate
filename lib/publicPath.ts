@@ -1,6 +1,6 @@
 /**
  * Path for static files in `public/` when Next.js `basePath` is set
- * (e.g. GitHub Pages: assets live under /nawa_project/...).
+ * (e.g. GitHub Pages: assets live under /nawarealestate/...).
  */
 export function publicPath(filePath: string): string {
   const base = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");

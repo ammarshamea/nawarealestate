@@ -10,9 +10,5 @@ interface EyebrowProps {
 
 export default function Eyebrow({ label, className = "" }: EyebrowProps) {
   const { lang } = useSite();
-  return (
-    <p className={`eyebrow ${className}`} style={{ color: "var(--color-brand-gold)" }}>
-      {tx(label, lang)}
-    </p>
-  );
+  return <p className={`eyebrow ${className}`.trim()}>{tx(label, lang)}</p>;
 }

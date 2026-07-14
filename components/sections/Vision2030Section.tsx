@@ -8,31 +8,31 @@ import { sectionAnchors } from "@/lib/data/sections";
 import { useSite } from "@/lib/context";
 import { t, tx } from "@/lib/i18n";
 
-export default function AboutEditorial() {
+export default function Vision2030Section() {
   const { lang } = useSite();
 
   return (
-    <section id={sectionAnchors.about} className="section-padding surface-ivory relative overflow-hidden">
+    <section id={sectionAnchors.vision2030} className="section-padding surface-ivory relative overflow-hidden">
       <div className="container-luxury grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <StaggerReveal className="order-2 lg:order-1">
+        <StaggerReveal>
           <div className="section-header">
             <StaggerItem>
-              <Eyebrow label={t.intro.label} />
+              <Eyebrow label={t.vision2030.label} />
             </StaggerItem>
             <StaggerItem>
-              <p className="section-body">{tx(t.intro.p1, lang)}</p>
+              <h2 className="section-title section-title--preline">{tx(t.vision2030.headline, lang)}</h2>
             </StaggerItem>
             <StaggerItem>
-              <p className="section-body mt-4">{tx(t.intro.p2, lang)}</p>
+              <p className="section-body mt-4">{tx(t.vision.sub, lang)}</p>
             </StaggerItem>
           </div>
         </StaggerReveal>
-        <StaggerReveal className="order-1 lg:order-2">
+        <StaggerReveal>
           <StaggerItem image>
-            <div className="brand-media-frame aspect-[4/5] max-h-[min(560px,65vh)] w-full mx-auto lg:max-w-none">
+            <div className="brand-media-frame aspect-[16/10] max-h-[min(420px,50vh)]">
               <BrandImage
-                src={brandImages.residentialStreet}
-                alt={tx(t.intro.label, lang)}
+                src={brandImages.architecturalBlueprint}
+                alt={tx(t.vision2030.label, lang)}
                 className="brand-media"
               />
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from "react";
+import { notifyLocaleChange, refreshScrollTriggersPreservingPosition } from "@/lib/motion/scrollSync";
 
 export type Lang = "en" | "ar";
 
@@ -8,8 +9,6 @@ function applyLangToDocument(l: Lang) {
   const html = document.documentElement;
   html.lang = l;
   html.dir = l === "ar" ? "rtl" : "ltr";
-  html.classList.toggle("font-tajawal", l === "ar");
-  html.classList.toggle("font-josefin", l === "en");
 }
 
 interface SiteCtx {
@@ -50,6 +49,10 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     setLangState(l);
     localStorage.setItem("nawah-lang", l);
     applyLangToDocument(l);
+    notifyLocaleChange();
+    requestAnimationFrame(() => {
+      void refreshScrollTriggersPreservingPosition();
+    });
   }, []);
 
   return (

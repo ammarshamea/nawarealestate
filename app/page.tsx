@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HomeExperience from "@/components/HomeExperience";
 
 export const metadata: Metadata = {
-  title: "نواة التطوير العقاري | Nawah Real Estate Development",
+  title: "نواة للتطوير العقاري والمقاولات | Nawah Real Estate Development & Contracting",
   description:
-    "نواة التطوير العقاري | Nawah Real Estate Development — Crafting Luxury… Building Lifestyles | نصنع الفخامة… ونبني أسلوب حياة",
+    "نواة للتطوير العقاري والمقاولات | Nawah Real Estate Development & Contracting. Crafting Luxury… Building Lifestyles | نصنع الفخامة… ونبني أسلوب حياة",
 };
 
 export default function HomePage() {

@@ -79,7 +79,7 @@ export default function Navbar() {
             transition: "background 0.5s, backdrop-filter 0.5s",
           }}
         >
-          <div className="container-luxury flex h-14 min-h-[3.25rem] items-center justify-between gap-2 sm:h-16 lg:h-20">
+          <div className="container-luxury flex h-[var(--nav-height)] min-h-[var(--nav-height)] items-center justify-between gap-2">
             <AnchorLink anchor={sectionAnchors.home} onClick={() => setMenuOpen(false)}>
               <NawaLogo height={48} />
             </AnchorLink>
@@ -250,10 +250,9 @@ function NavItem({
       onMouseLeave={() => setHovered(false)}
       className="relative pb-1"
       style={{
-        fontFamily: isAr ? "var(--font-tajawal)" : "var(--font-josefin)",
         fontSize: isAr ? "0.82rem" : "0.65rem",
         letterSpacing: isAr ? "0.02em" : "0.18em",
-        fontWeight: 600,
+        fontWeight: 700,
         textTransform: "uppercase",
         color: hovered ? (isActive ? "#b58516" : color) : color,
       }}
