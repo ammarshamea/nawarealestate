@@ -5,6 +5,6 @@ export function whatsAppUrl(lang: "en" | "ar"): string {
   const text =
     lang === "ar"
       ? "مرحباً، أود التواصل مع نواة التطوير العقاري."
-      : "Hello, I would like to get in touch with Nawah Real Estate Development.";
+      : "Hello, I would like to get in touch with Nawa Real Estate Development.";
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }

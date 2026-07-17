@@ -5,19 +5,13 @@ import dynamic from "next/dynamic";
 import CinematicIntro from "@/components/motion/CinematicIntro";
 import HeroScrollNarrative from "@/components/sections/HeroScrollNarrative";
 import AboutEditorial from "@/components/sections/AboutEditorial";
-import PhilosophyPinned from "@/components/sections/PhilosophyPinned";
 import CompanyStory from "@/components/sections/CompanyStory";
 import ServicesExplorer from "@/components/sections/ServicesExplorer";
 import ProjectTypesPanorama from "@/components/sections/ProjectTypesPanorama";
-import TargetMarket from "@/components/sections/TargetMarket";
-import VisionSection from "@/components/sections/VisionSection";
-import MissionSection from "@/components/sections/MissionSection";
-import Vision2030Section from "@/components/sections/Vision2030Section";
+import VisionMissionTriad from "@/components/sections/VisionMissionTriad";
 import ValuesManifesto from "@/components/sections/ValuesManifesto";
-import InvestmentTimeline from "@/components/sections/InvestmentTimeline";
 import CompetitiveAdvantage from "@/components/sections/CompetitiveAdvantage";
 import Partnerships from "@/components/sections/Partnerships";
-import Sustainability from "@/components/sections/Sustainability";
 import ContactExperience from "@/components/sections/ContactExperience";
 import { StaggerReveal, StaggerItem } from "@/components/ui/ScrollReveal";
 import { useSite } from "@/lib/context";
@@ -45,19 +39,13 @@ export default function HomeExperience() {
       <CinematicIntro onComplete={() => setIntroDone(true)} />
       <HeroScrollNarrative />
       <AboutEditorial />
-      <PhilosophyPinned />
       <CompanyStory />
       <ServicesExplorer />
       <ProjectTypesPanorama />
-      <TargetMarket />
-      <VisionSection />
-      <MissionSection />
-      <Vision2030Section />
+      <VisionMissionTriad />
       <ValuesManifesto />
-      <InvestmentTimeline />
       <CompetitiveAdvantage />
       <Partnerships />
-      <Sustainability />
       <ContactExperience />
       <section id="tagline" className="surface-dark-brand py-16 relative overflow-hidden">
         <div className="absolute inset-0 h-32 opacity-40">

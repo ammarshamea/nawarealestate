@@ -108,7 +108,7 @@ export default function Navbar() {
                     key={l}
                     type="button"
                     onClick={() => setLang(l)}
-                    className="min-h-[44px] min-w-[44px] px-2.5 text-xs font-bold"
+                    className="min-h-[44px] min-w-[44px] px-2.5 text-xs font-bold cursor-pointer transition-opacity hover:opacity-90"
                     style={{
                       background: lang === l ? "#b58516" : "transparent",
                       color: lang === l ? "#000" : atopHero ? "#fff" : "rgba(0,0,0,0.6)",
@@ -190,7 +190,7 @@ export default function Navbar() {
                       key={l}
                       type="button"
                       onClick={() => setLang(l)}
-                      className="flex-1 py-3 text-xs font-bold border border-black/15"
+                      className="flex-1 py-3 text-xs font-bold border border-black/15 cursor-pointer transition-opacity hover:opacity-90"
                       style={{ background: lang === l ? "#b58516" : "transparent" }}
                     >
                       {l === "en" ? "English" : "العربية"}

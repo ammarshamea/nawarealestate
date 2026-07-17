@@ -11,6 +11,12 @@ import { t, tx } from "@/lib/i18n";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+const topSlots = ["values-spine-slot--t1", "values-spine-slot--t2", "values-spine-slot--t3"] as const;
+const bottomSlots = ["values-spine-slot--b1", "values-spine-slot--b2"] as const;
+
+const topValues = coreValues.filter((_, i) => i % 2 === 0);
+const bottomValues = coreValues.filter((_, i) => i % 2 === 1);
+
 export default function ValuesManifesto() {
   const { lang, reducedMotion } = useSite();
 
@@ -21,36 +27,45 @@ export default function ValuesManifesto() {
           <header className="values-manifesto-header max-w-2xl">
             <StaggerReveal>
               <StaggerItem>
-                <Eyebrow label={t.valuesSection.label} />
-              </StaggerItem>
-              <StaggerItem>
-                <h2
-                  id="values-heading"
-                  className="section-title mt-5 max-w-2xl"
-                >
-                  {tx(t.valuesSection.title, lang)}
-                </h2>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="values-manifesto-header-line" aria-hidden="true" />
+                <Eyebrow label={t.valuesSection.label} id="values-heading" />
               </StaggerItem>
             </StaggerReveal>
           </header>
 
-          <div className="values-spine mt-14 md:mt-20 lg:mt-24">
-            <div className="values-spine-rail" aria-hidden="true" />
-            <ol className="values-spine-list">
-              {coreValues.map((value, i) => (
+          <div className="values-horizontal-spine mt-10 md:mt-14 lg:mt-16">
+            {topValues.map((value, i) => {
+              const index = i * 2;
+              return (
                 <ValueCard
                   key={value.id}
+                  slotClass={topSlots[i]}
                   title={tx(value.title, lang)}
                   statement={tx(value.statement, lang)}
-                  index={i}
-                  isDark={i % 2 === 1}
+                  index={index}
+                  row="top"
+                  isDark={false}
                   reducedMotion={reducedMotion}
                 />
-              ))}
-            </ol>
+              );
+            })}
+
+            <div className="values-horizontal-rail" aria-hidden="true" />
+
+            {bottomValues.map((value, i) => {
+              const index = i * 2 + 1;
+              return (
+                <ValueCard
+                  key={value.id}
+                  slotClass={bottomSlots[i]}
+                  title={tx(value.title, lang)}
+                  statement={tx(value.statement, lang)}
+                  index={index}
+                  row="bottom"
+                  isDark
+                  reducedMotion={reducedMotion}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -59,39 +74,38 @@ export default function ValuesManifesto() {
 }
 
 function ValueCard({
+  slotClass,
   title,
   statement,
   index,
+  row,
   isDark,
   reducedMotion,
 }: {
+  slotClass: string;
   title: string;
   statement: string;
   index: number;
+  row: "top" | "bottom";
   isDark: boolean;
   reducedMotion: boolean;
 }) {
-  const ref = useRef<HTMLLIElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px 0px -60px 0px" });
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px 0px -40px 0px" });
   const show = reducedMotion || inView;
-  const fromStart = index % 2 === 0;
+  const fromY = row === "top" ? -20 : 20;
 
   return (
-    <li
+    <motion.article
       ref={ref}
-      className={`values-spine-item${fromStart ? " values-spine-item--start" : " values-spine-item--end"}`}
+      className={`values-card values-spine-slot ${slotClass}${isDark ? " values-card--dark" : ""}`}
+      initial={reducedMotion ? false : { opacity: 0, y: fromY }}
+      animate={show ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.07, ease: EASE }}
     >
-      <motion.article
-        className={`values-card${isDark ? " values-card--dark" : ""}`}
-        initial={reducedMotion ? false : { opacity: 0, y: 32, x: fromStart ? -24 : 24 }}
-        animate={show ? { opacity: 1, y: 0, x: 0 } : {}}
-        transition={{ duration: 0.75, delay: 0.06, ease: EASE }}
-      >
-        <span className="values-card-node" aria-hidden="true" />
-        <div className="values-card-accent" aria-hidden="true" />
-        <h3 className="values-card-title">{title}</h3>
-        <p className="values-card-body">{statement}</p>
-      </motion.article>
-    </li>
+      <div className="values-card-accent" aria-hidden="true" />
+      <h3 className="values-card-title">{title}</h3>
+      <p className="values-card-body">{statement}</p>
+    </motion.article>
   );
 }

@@ -15,7 +15,7 @@ export default function CompanyStory() {
   return (
     <section id={sectionAnchors.story} className="section-padding surface-dark-brand relative">
       <StaggerReveal className="container-luxury grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <StaggerItem image className="order-2 lg:order-1 w-full">
+        <StaggerItem image className="order-2 lg:order-2 w-full">
           <div className="brand-media-frame brand-media-frame--story aspect-[4/3] w-full min-h-[min(280px,45vh)] max-h-[min(480px,55vh)]">
             <BrandImage
               src={brandImages.developmentOffice}
@@ -25,7 +25,7 @@ export default function CompanyStory() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
         </StaggerItem>
-        <StaggerItem className="order-1 lg:order-2">
+        <StaggerItem className="order-1 lg:order-1">
           <div className="section-header">
             <Eyebrow label={t.story.label} />
             <h2 className="section-title section-title--preline mt-4">{tx(t.story.headline, lang)}</h2>

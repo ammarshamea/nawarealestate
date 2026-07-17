@@ -19,9 +19,9 @@ const logoOgPath = publicPath("nawa_logo.svg");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin()),
-  title: "نواة للتطوير العقاري والمقاولات | Nawah Real Estate Development & Contracting",
+  title: "نواة للتطوير العقاري والمقاولات | Nawa Real Estate Development & Contracting",
   description:
-    "نواة للتطوير العقاري والمقاولات | Nawah Real Estate Development & Contracting. Crafting Luxury… Building Lifestyles | نصنع الفخامة… ونبني أسلوب حياة",
+    "نواة للتطوير العقاري والمقاولات | Nawa Real Estate Development & Contracting. Crafting Luxury… Building Lifestyles | نصنع الفخامة… ونبني أسلوب حياة",
   keywords:
     "luxury real estate, Saudi Arabia, Riyadh, real estate development, contracting, luxury villas, premium apartments, Vision 2030, نواة للتطوير العقاري والمقاولات",
   icons: {
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     apple: logoOgPath,
   },
   openGraph: {
-    title: "نواة للتطوير العقاري والمقاولات | Nawah Real Estate Development & Contracting",
+    title: "نواة للتطوير العقاري والمقاولات | Nawa Real Estate Development & Contracting",
     description: "Crafting Luxury… Building Lifestyles | نصنع الفخامة… ونبني أسلوب حياة",
     type: "website",
     images: [
       {
         url: logoOgPath,
-        alt: "نواة التطوير العقاري | Nawah Real Estate Development",
+        alt: "نواة التطوير العقاري | Nawa Real Estate Development",
       },
     ],
     locale: "en_US",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "نواة للتطوير العقاري والمقاولات | Nawah Real Estate Development & Contracting",
+    title: "نواة للتطوير العقاري والمقاولات | Nawa Real Estate Development & Contracting",
     description: "Crafting Luxury… Building Lifestyles | نصنع الفخامة… ونبني أسلوب حياة",
     images: [logoOgPath],
   },

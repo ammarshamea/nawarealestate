@@ -12,32 +12,38 @@ export default function AboutEditorial() {
   const { lang } = useSite();
 
   return (
-    <section id={sectionAnchors.about} className="section-padding surface-ivory relative overflow-hidden">
-      <div className="container-luxury grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <StaggerReveal className="order-2 lg:order-1">
-          <div className="section-header">
-            <StaggerItem>
-              <Eyebrow label={t.intro.label} />
-            </StaggerItem>
-            <StaggerItem>
-              <p className="section-body">{tx(t.intro.p1, lang)}</p>
-            </StaggerItem>
-            <StaggerItem>
-              <p className="section-body mt-4">{tx(t.intro.p2, lang)}</p>
-            </StaggerItem>
-          </div>
-        </StaggerReveal>
-        <StaggerReveal className="order-1 lg:order-2">
-          <StaggerItem image>
-            <div className="brand-media-frame aspect-[4/5] max-h-[min(560px,65vh)] w-full mx-auto lg:max-w-none">
-              <BrandImage
-                src={brandImages.residentialStreet}
-                alt={tx(t.intro.label, lang)}
-                className="brand-media"
-              />
+    <section
+      id={sectionAnchors.about}
+      className="about-editorial surface-ivory relative min-h-[min(85vh,820px)] overflow-hidden"
+      aria-label={tx(t.intro.label, lang)}
+    >
+      <div className="about-editorial-bg" aria-hidden="true">
+        <BrandImage
+          src={brandImages.aboutUs}
+          alt=""
+          className="about-editorial-bg-image"
+        />
+        <div className="about-editorial-bg-overlay" />
+      </div>
+
+      <div className="relative z-10 flex min-h-[min(85vh,820px)] items-center">
+        <div className="container-luxury section-padding w-full">
+          <StaggerReveal>
+            <div className="about-editorial-content">
+              <StaggerItem>
+                <Eyebrow label={t.intro.label} className="about-editorial-eyebrow" />
+              </StaggerItem>
+              <StaggerItem>
+                <p className="section-body about-editorial-text">{tx(t.intro.p1, lang)}</p>
+              </StaggerItem>
+              <StaggerItem>
+                <p className="section-body about-editorial-text mt-4 md:mt-5">
+                  {tx(t.intro.p2, lang)}
+                </p>
+              </StaggerItem>
             </div>
-          </StaggerItem>
-        </StaggerReveal>
+          </StaggerReveal>
+        </div>
       </div>
     </section>
   );
