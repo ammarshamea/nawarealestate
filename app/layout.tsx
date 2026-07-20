@@ -4,6 +4,7 @@ import { SiteProvider } from "@/lib/context";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
+import RegisterServiceWorker from "@/components/RegisterServiceWorker";
 import { josefinSans, tajawal } from "@/lib/fonts";
 import { publicPath } from "@/lib/publicPath";
 
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ar" dir="rtl" className={`${josefinSans.variable} ${tajawal.variable} h-full`}>
       <body suppressHydrationWarning className="min-h-full flex flex-col font-sans">
         <SiteProvider>
+          <RegisterServiceWorker />
           <Navbar />
           <main className="site-shell flex-1 min-w-0 w-full overflow-x-clip">{children}</main>
           <Footer />

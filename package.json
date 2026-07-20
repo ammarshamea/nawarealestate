@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:pages": "cross-env GITHUB_PAGES=true next build",
-    "build:prod": "cross-env NODE_ENV=production next build",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/optimize-images.mjs && next build",
+    "build:pages": "node scripts/optimize-images.mjs && cross-env GITHUB_PAGES=true next build",
+    "build:prod": "node scripts/optimize-images.mjs && cross-env NODE_ENV=production next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -26,10 +27,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "cross-env": "^7.0.3"
+    "typescript": "^5"
   }
 }
